@@ -18,6 +18,9 @@ export default {
       animation: {
         'bounce-base': 'bounce-from-base 900ms infinite',
       },
+      backgroundImage: {
+        'main-bg': "url('/bg/Banner-GoogleForm.png')",
+      },
     },
   },
   plugins: [require('daisyui')],
