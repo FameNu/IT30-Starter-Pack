@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import { type CardArgs } from '@/models/Card';
-import Card from '@/components/homeComponent/Card.vue';
+import { ref } from "vue";
+import { type CardArgs } from "@/models/Card";
+import Card from "@/components/homeComponent/Card.vue";
 
 defineProps<{
   cardData: CardArgs[];

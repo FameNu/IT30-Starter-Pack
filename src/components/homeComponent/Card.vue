@@ -5,12 +5,12 @@ defineProps({
   island: String,
   position: {
     type: String,
-    default: '',
+    default: "",
   },
   isHovered: Boolean,
 });
 
-defineEmits(['onHover', 'onLeave']);
+defineEmits(["onHover", "onLeave"]);
 </script>
 
 <template>

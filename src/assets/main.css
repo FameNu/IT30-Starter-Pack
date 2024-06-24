@@ -3,34 +3,34 @@
 @tailwind utilities;
 
 @layer components {
-    .mascot,
-    .card-container {
-        @apply transform transition-all duration-500 hover:duration-500;
-    }
+  .mascot,
+  .card-container {
+    @apply transform transition-all duration-500 hover:duration-500;
+  }
 
-    .card-list .card-container:nth-child(2),
-    .card-list .card-container:nth-last-child(2) {
-        @apply translate-y-32;
-    }
+  .card-list .card-container:nth-child(2),
+  .card-list .card-container:nth-last-child(2) {
+    @apply translate-y-32;
+  }
 
-    .card-image-container:hover .mascot {
-        @apply delay-500 animate-bounce-base;
-    }
+  .card-image-container:hover .mascot {
+    @apply delay-500 animate-bounce-base;
+  }
 
-    .card-image-container,
-    .card-name {
-        @apply transform transition-all duration-200 hover:duration-200;
-    }
+  .card-image-container,
+  .card-name {
+    @apply transform transition-all duration-200 hover:duration-200;
+  }
 
-    .card-list .card-image-container:hover {
-        @apply scale-125;
-    }
+  .card-list .card-image-container:hover {
+    @apply scale-125;
+  }
 
-    .card-list .card-image-container:hover~.card-name {
-        @apply scale-125 translate-y-6;
-    }
+  .card-list .card-image-container:hover ~ .card-name {
+    @apply scale-125 translate-y-6;
+  }
 
-    .shrink-size-img {
-        @apply grayscale scale-90;
-    }
+  .shrink-size-img {
+    @apply grayscale scale-90;
+  }
 }

@@ -1,16 +1,14 @@
 <script setup lang="ts">
-defineProps(
-  {
-    color: {
-      type: String,
-      default: 'black',
-    },
-    size: {
-      type: String,
-      default: 'h-6',
-    },
+defineProps({
+  color: {
+    type: String,
+    default: "black",
   },
-);
+  size: {
+    type: String,
+    default: "h-6",
+  },
+});
 </script>
 
 <template>
