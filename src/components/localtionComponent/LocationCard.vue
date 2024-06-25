@@ -9,7 +9,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="flex-col p-4 mx-3 my-2 justify-center w-1/3">
+  <div class="flex-col min-w-[200px] max-w-[33%] max-h-[450px] p-4 mx-3 my-2 justify-center bg-orange-300 rounded-md">
     <img :src="props.pathOfImg" :alt="nameOfImage"/>
     <section class="flex-col pl-3">
       <div class="font-bold mt-4">
