@@ -18,9 +18,6 @@ export default {
       animation: {
         'bounce-base': 'bounce-from-base 900ms infinite',
       },
-      backgroundImage: {
-        'main-bg': "url('/bg/bg6.png')",
-      },
     },
   },
   plugins: [require('daisyui')],

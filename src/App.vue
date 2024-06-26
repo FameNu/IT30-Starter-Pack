@@ -1,8 +1,5 @@
 <script setup lang="ts">
 import SITAndStarter from '@/components/ourBrand/SITAndStarter.vue'
-
-// class image
-// bg-main-bg bg-cover bg-no-repeat bg-fixed h-fit
 </script>
 
 <template>
