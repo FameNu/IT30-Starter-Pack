@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import SITAndStarter from "@/components/ourBrand/SITAndStarter.vue";
+import SITAndStarter from '@/components/ourBrand/SITAndStarter.vue'
 </script>
 
 <template>

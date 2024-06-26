@@ -5,12 +5,12 @@ defineProps({
   island: String,
   position: {
     type: String,
-    default: "",
+    default: ''
   },
-  isHovered: Boolean,
-});
+  isHovered: Boolean
+})
 
-defineEmits(["onHover", "onLeave"]);
+defineEmits(['onHover', 'onLeave'])
 </script>
 
 <template>
@@ -22,14 +22,10 @@ defineEmits(["onHover", "onLeave"]);
     <div
       :class="[
         'relative h-fit w-fit rounded-b-full card-image-container',
-        { 'shrink-size-img': !isHovered },
+        { 'shrink-size-img': !isHovered }
       ]"
     >
-      <img
-        :class="['mascot h-48 absolute top-0', position]"
-        :src="image"
-        :alt="name"
-      />
+      <img :class="['mascot h-48 absolute top-0', position]" :src="image" :alt="name" />
       <img class="w-52 pt-32" :src="island" :alt="`${name}-${island}`" />
     </div>
     <div class="w-fit select-none card-name">{{ name }}</div>

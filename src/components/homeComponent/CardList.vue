@@ -1,21 +1,21 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import { type CardArgs } from "@/models/Card";
-import Card from "@/components/homeComponent/Card.vue";
+import { ref } from 'vue'
+import { type CardArgs } from '@/models/Card'
+import Card from '@/components/homeComponent/Card.vue'
 
 defineProps<{
-  cardData: CardArgs[];
-}>();
+  cardData: CardArgs[]
+}>()
 
-const hoverCardIndex = ref<number | null>(null);
+const hoverCardIndex = ref<number | null>(null)
 
 const handleMouseEnter = (index: number) => {
-  hoverCardIndex.value = index;
-};
+  hoverCardIndex.value = index
+}
 
 const handleMouseLeave = () => {
-  hoverCardIndex.value = null;
-};
+  hoverCardIndex.value = null
+}
 </script>
 
 <template>
