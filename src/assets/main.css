@@ -50,11 +50,11 @@
   }
 
   .list-medium-screen .card-container:nth-child(2) {
-    @apply row-span-2;
+    @apply md:max-xl:row-span-2;
   }
 
   .list-medium-screen .card-container:last-child {
-    @apply col-start-3;
+    @apply md:max-xl:col-start-3;
   }
 
   /* Mobile Size */
