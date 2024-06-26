@@ -19,7 +19,7 @@ export default {
         'bounce-base': 'bounce-from-base 900ms infinite',
       },
       backgroundImage: {
-        'main-bg': "url('/bg/Banner-GoogleForm.png')",
+        'main-bg': "url('/bg/bg6.png')",
       },
     },
   },
