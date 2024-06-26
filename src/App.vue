@@ -5,7 +5,7 @@ import SITAndStarter from '@/components/ourBrand/SITAndStarter.vue'
 <template>
   <div>
     <div class="-z-10 absolute w-full h-full">
-      <img src="/bg/bg6.png" alt="main-bg-image" class="w-full h-full fixed">
+      <img src="/bg/bg6.png" alt="main-bg-image" class="w-full fixed -bottom-4">
     </div>
     <header class="fixed z-50 top-0 w-full">
       <SITAndStarter />
