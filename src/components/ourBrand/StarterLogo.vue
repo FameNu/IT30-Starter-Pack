@@ -8,7 +8,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="mt-4">
+  <div class="pt-4">
     <img src="/logo/StarterPack-logo.png" alt="StarterPack Logo" :class="size" />
   </div>
 </template>
