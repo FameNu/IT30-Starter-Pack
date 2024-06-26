@@ -19,7 +19,7 @@ const handleMouseLeave = () => {
 </script>
 
 <template>
-  <div class="card-list w-full flex flex-wrap justify-evenly gap-8">
+  <div class="card-list w-full max-w-[1300px] min-h-[500px] flex flex-wrap justify-between gap-8">
     <Card
       v-for="(card, index) in cardData"
       :key="index"

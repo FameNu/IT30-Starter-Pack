@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer components {
+  .text-header-desktop {
+    @apply text-xl font-bold w-fit;
+  }
+
   .mascot,
   .card-container {
     @apply transform transition-all duration-500 hover:duration-500;
