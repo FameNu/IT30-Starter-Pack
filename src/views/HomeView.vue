@@ -32,7 +32,7 @@ const cardData = [
 </script>
 
 <template>
-  <div class="h-full flex flex-col justify-center gap-16">
+  <div class="h-full flex flex-col justify-center items-center gap-16">
     <div class="bg-yellow-300 w-fit py-4 px-10 mx-auto rounded-xl flex flex-col items-center">
       <h1 class="text-header-desktop">Welcome to Capy Mellow Land</h1>
       <h2 class="text-header-desktop">Where you want to visit?</h2>
