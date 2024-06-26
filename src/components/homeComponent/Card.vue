@@ -15,7 +15,7 @@ defineEmits(['onHover', 'onLeave'])
 
 <template>
   <div
-    class="w-fit flex flex-col items-center card-container"
+    class="w-fit mx-auto flex flex-col items-center justify-center card-container"
     @mouseenter="$emit('onHover')"
     @mouseleave="$emit('onLeave')"
   >
