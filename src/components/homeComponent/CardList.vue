@@ -1,25 +1,25 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import { type CardArgs } from "@/models/Card";
-import Card from "@/components/homeComponent/Card.vue";
+import { ref } from 'vue'
+import { type CardArgs } from '@/models/Card'
+import Card from '@/components/homeComponent/Card.vue'
 
 defineProps<{
-  cardData: CardArgs[];
-}>();
+  cardData: CardArgs[]
+}>()
 
-const hoverCardIndex = ref<number | null>(null);
+const hoverCardIndex = ref<number | null>(null)
 
 const handleMouseEnter = (index: number) => {
-  hoverCardIndex.value = index;
-};
+  hoverCardIndex.value = index
+}
 
 const handleMouseLeave = () => {
-  hoverCardIndex.value = null;
-};
+  hoverCardIndex.value = null
+}
 </script>
 
 <template>
-  <div class="card-list w-full max-w-[1300px] min-h-[500px] flex flex-wrap justify-between gap-8">
+  <div class="card-list w-full max-w-[1300px] min-h-[500px] max-md:list-mobile md:list-medium-screen xl:list-desktop">
     <Card
       v-for="(card, index) in cardData"
       :key="index"
