@@ -17,8 +17,12 @@
     @apply translate-y-32;
   } */
 
-  .card-image-container:hover .mascot {
+  /* .card-image-container:hover .mascot {
     @apply delay-500 animate-bounce-base;
+  } */
+
+  .mascot-bounce {
+    @apply animate-bounce-base;
   }
 
   .card-image-container,
@@ -26,11 +30,19 @@
     @apply transform transition-all duration-200 hover:duration-200;
   }
 
-  .card-list .card-image-container:hover {
+  /* .card-list .card-image-container:hover {
     @apply scale-125;
   }
 
   .card-list .card-image-container:hover ~ .card-name {
+    @apply scale-125 translate-y-6;
+  } */
+
+  .card-hovering {
+    @apply scale-125;
+  }
+
+  .card-name-hovering {
     @apply scale-125 translate-y-6;
   }
 
