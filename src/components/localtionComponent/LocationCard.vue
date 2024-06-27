@@ -9,7 +9,9 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="flex-col min-w-[200px] max-w-[33%] max-h-[450px] p-4 mx-3 my-2 justify-center bg-orange-300 rounded-md">
+  <div class="flex-col p-4 mx-3 my-2 justify-center bg-orange-300 rounded-md shadow-gray-400 shadow-md
+   hover:z-10 hover:bg-orange-400">
+   <!-- I need to zoom a bit when user hover, but I can't -->
     <img :src="props.pathOfImg" :alt="nameOfImage"/>
     <section class="flex-col pl-3">
       <div class="font-bold mt-4">
