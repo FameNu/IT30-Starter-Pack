@@ -1,7 +1,8 @@
 interface LocationsArgs {
-    pathToImg: string,
-    name: string,
-    description: string
+  pathToImg: string
+  name: string
+  description: string
+  link: string
 }
 
-export {type LocationsArgs}
+export { type LocationsArgs }

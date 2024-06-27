@@ -1,17 +1,22 @@
 <script setup lang="ts">
-import LocationCard from '@/components/localtionComponent/LocationCard.vue';
-import { type LocationsArgs } from '@/models/Locations';
-const pathOfImgTest: string = 'public/bg/bg7.png';
+import LocationCard from '@/components/localtionComponent/LocationCard.vue'
+import { type LocationsArgs } from '@/models/Locations'
 
-const locations: Array<LocationsArgs> = new Array();
+// Path of the image for testing
+const pathOfImgTest: string = 'public/bg/bg7.png'
 
+// Create a dummy data for testing
+const locations: Array<LocationsArgs> = new Array()
+
+// Create a dummy data for testing
 for (let i = 0; i < 7; i++) {
   const location: LocationsArgs = {
     pathToImg: pathOfImgTest,
     name: `testing img + ${i}`,
     description: 'this is an description of ' + i,
-  };
-  locations.push(location);
+    link: 'https://www.google.com?=location' + i
+  }
+  locations.push(location)
 }
 </script>
 
@@ -19,10 +24,7 @@ for (let i = 0; i < 7; i++) {
   <div class="w-auto h-auto flex">
     <section id="locations-table" class="grid grid-cols-2 max-w-[60vw]">
       <div v-for="location in locations">
-        <LocationCard
-          :nameOfImage="location.name"
-          :pathOfImg="location.pathToImg"
-        >
+        <LocationCard :nameOfImage="location.name" :pathOfImg="location.pathToImg">
           <template #name>{{ location.name }}</template>
           <template #description>{{ location.description }}</template>
         </LocationCard>
