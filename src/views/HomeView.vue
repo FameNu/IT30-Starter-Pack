@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import CardList from "@/components/homeComponent/CardList.vue";
-import IgIcon from "@/components/icons/IgIcon.vue";
+import CardList from '@/components/homeComponent/CardList.vue'
+import IgIcon from '@/components/icons/IgIcon.vue'
 const cardData = [
   {
     name: 'Action-1',
@@ -41,7 +41,7 @@ const cardData = [
     <CardList :card-data="cardData" />
   </div>
   <div class="flex absolute bottom-5 right-5">
-    <IgIcon @click="$router.push('locations')" color="green" size="h-12" class="mx-3"/>
-    <IgIcon color="black" size="h-12" class="mx-3"/>
+    <IgIcon @click="$router.push('locations')" color="green" size="h-12" class="mx-3" />
+    <IgIcon color="black" size="h-12" class="mx-3" />
   </div>
 </template>
