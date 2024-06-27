@@ -5,32 +5,28 @@ defineProps({
   island: String,
   position: {
     type: String,
-    default: "",
+    default: ''
   },
-  isHovered: Boolean,
-});
+  isHovered: Boolean
+})
 
-defineEmits(["onHover", "onLeave"]);
+defineEmits(['onHover', 'onLeave'])
 </script>
 
 <template>
   <div
-    class="border-2 w-fit flex flex-col items-center card-container"
+    class="w-fit mx-auto flex flex-col items-center justify-center card-container"
     @mouseenter="$emit('onHover')"
     @mouseleave="$emit('onLeave')"
   >
     <div
       :class="[
         'relative h-fit w-fit rounded-b-full card-image-container',
-        { 'shrink-size-img': !isHovered },
+        { 'shrink-size-img': !isHovered }
       ]"
     >
-      <img
-        :class="['mascot h-32 absolute top-0', position]"
-        :src="image"
-        :alt="name"
-      />
-      <img class="w-36 pt-20" :src="island" :alt="`${name}-${island}`" />
+      <img :class="['mascot h-48 absolute top-0', position]" :src="image" :alt="name" />
+      <img class="w-52 pt-32" :src="island" :alt="`${name}-${island}`" />
     </div>
     <div class="w-fit select-none card-name">{{ name }}</div>
   </div>
