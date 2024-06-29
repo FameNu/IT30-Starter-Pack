@@ -10,7 +10,11 @@ import SITAndStarter from '@/components/ourBrand/SITAndStarter.vue'
     <RouterView />
   </main>
   <div class="-z-10 absolute top-0 w-screen h-screen">
-    <img src="/bg/bg6.png" alt="main-bg-image" class="max-lg:h-screen w-dvw md:w-full fixed lg:-bottom-4" />
+    <img
+      src="/bg/bg6.png"
+      alt="main-bg-image"
+      class="max-lg:h-screen w-dvw md:w-full fixed lg:-bottom-4"
+    />
   </div>
 </template>
 
