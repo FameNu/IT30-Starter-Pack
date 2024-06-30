@@ -31,7 +31,6 @@ const handleMouseLeave = () => {
       :image="card.image"
       :name="card.name"
       :island="card.island"
-      :position="card.position"
       :isHovered="hoverCardIndex === index || hoverCardIndex === null"
       @onHover="handleMouseEnter(index)"
       @onLeave="handleMouseLeave"

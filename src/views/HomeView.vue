@@ -21,13 +21,11 @@ const cardData = [
     name: 'Action-4',
     image: '/mascot/Mascot-Action-4.png',
     island: '/sky-island.png',
-    position: 'top-7 right-2'
   },
   {
     name: 'Action-5',
     image: '/mascot/Mascot-Action-5.png',
     island: '/sky-island.png',
-    position: 'top-8 right-2'
   }
 ]
 </script>

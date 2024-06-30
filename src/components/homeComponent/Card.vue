@@ -3,10 +3,6 @@ defineProps({
   name: String,
   image: String,
   island: String,
-  position: {
-    type: String,
-    default: ''
-  },
   isHovered: Boolean,
   hovering: Boolean
 })
@@ -30,8 +26,7 @@ defineEmits(['onHover', 'onLeave'])
          }
       ]"
     >
-      <img :class="['mascot h-48 absolute top-0', position, {'mascot-bounce': isHovered && hovering}]" :src="image" :alt="name" />
-      <img class="w-52 pt-32" :src="island" :alt="`${name}-${island}`" />
+      <img :class="['mascot h-48', {'mascot-bounce': isHovered && hovering}]" :src="image" :alt="name" />
     </div>
     <div 
         class="w-fit select-none card-name py-3 px-6 bg-slate-100 rounded-xl" 
