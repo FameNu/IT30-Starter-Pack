@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import SITAndStarter from '@/components/ourBrand/SITAndStarter.vue'
+import IgIcon from '@/components/icons/IgIcon.vue'
 </script>
 
 <template>
@@ -16,6 +17,10 @@ import SITAndStarter from '@/components/ourBrand/SITAndStarter.vue'
       class="max-lg:h-screen w-dvw md:w-full fixed lg:-bottom-4 opacity-60"
     />
   </div>
+  <footer class="fixed bottom-5 right-5 z-50 h-20">
+    <IgIcon @click="$router.push('locations')" color="green"/>
+    <IgIcon/>
+  </footer>
 </template>
 
 <style scoped></style>
