@@ -22,7 +22,9 @@ const handleMouseLeave = () => {
 </script>
 
 <template>
-  <div class="card-list w-full max-w-[1300px] min-h-[500px] max-md:list-mobile md:list-medium-screen xl:list-desktop">
+  <div
+    class="card-list w-full max-w-[1300px] min-h-[500px] max-md:list-mobile md:list-medium-screen xl:list-desktop"
+  >
     <Card
       v-for="(card, index) in cardData"
       :key="index"
