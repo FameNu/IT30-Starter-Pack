@@ -35,8 +35,4 @@ const cardData = [
     </div>
     <CardList :card-data="cardData" />
   </div>
-  <div class="flex absolute bottom-5 right-5">
-    <IgIcon @click="$router.push('locations')" color="green" size="h-12" class="mx-3" />
-    <IgIcon class="mx-3" />
-  </div>
 </template>
