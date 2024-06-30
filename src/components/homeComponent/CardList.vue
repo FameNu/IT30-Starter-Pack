@@ -16,6 +16,10 @@ const handleMouseEnter = (index: number) => {
 const handleMouseLeave = () => {
   hoverCardIndex.value = null;
 };
+
+const handleCardClick = (index: number) => {
+  console.log(`Card ${index} is clicked`);
+};
 </script>
 
 <template>
@@ -30,6 +34,7 @@ const handleMouseLeave = () => {
       :isHovered="hoverCardIndex === index || hoverCardIndex === null"
       @onHover="handleMouseEnter(index)"
       @onLeave="handleMouseLeave"
+      @cardClick="handleCardClick(index)"
     />
   </div>
 </template>

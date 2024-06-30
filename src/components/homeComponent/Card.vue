@@ -10,7 +10,7 @@ defineProps({
   isHovered: Boolean,
 });
 
-defineEmits(["onHover", "onLeave"]);
+defineEmits(["onHover", "onLeave", "cardClick"]);
 </script>
 
 <template>
@@ -18,6 +18,7 @@ defineEmits(["onHover", "onLeave"]);
     class="w-fit flex flex-col items-center card-container"
     @mouseenter="$emit('onHover')"
     @mouseleave="$emit('onLeave')"
+    @click="$emit('cardClick')"
   >
     <div
       :class="[
