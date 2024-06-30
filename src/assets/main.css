@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer components {
   .text-header-desktop {
-    @apply text-lg md:text-xl font-bold w-fit;
+    @apply text-lg md:text-xl font-bold w-fit font-caprasimo;
   }
 
   .mascot,
