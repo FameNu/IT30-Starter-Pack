@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import SITAndStarter from '@/components/ourBrand/SITAndStarter.vue'
-import IgIcon from '@/components/icons/IgIcon.vue'
+import HamurgerMenu from '@/components/social/HamurgerMenu.vue';
 </script>
 
 <template>
@@ -18,9 +18,6 @@ import IgIcon from '@/components/icons/IgIcon.vue'
     />
   </div>
   <footer class="fixed bottom-5 right-5 z-50 h-20">
-    <IgIcon @click="$router.push('locations')" color="green" />
-    <IgIcon />
+    <HamurgerMenu />
   </footer>
 </template>
-
-<style scoped></style>
