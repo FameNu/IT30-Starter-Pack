@@ -21,7 +21,31 @@ export default {
       fontFamily: {
         caprasimo: ['Caprasimo', 'Noto Sans Thai', 'sans-serif'],
         notosansthai: ['Noto Sans Thai', 'sans-serif']
-      }
+      },
+      colors: {
+        'sproutbara': '#2DEAB7',
+        'sproutbara-sec': '#88F2BC',
+        'sunnybara': '#FEA655',
+        'sunnybara-sec': '#F7DDB0',
+        'rainybara': '#7DA3EC',
+        'rainybara-sec': '#82AFBA',
+        'russetbara': '#FBBD25',
+        'russetbara-sec': '#FFE88E',
+        'cozybara': '#BA76EA',
+        'cozybara-sec': '#E7CFFF'
+      },
+      backgroundColor: {
+        'sproutbara': '#2DEAB7',
+        'sproutbara-sec': '#88F2BC',
+        'sunnybara': '#FEA655',
+        'sunnybara-sec': '#F7DDB0',
+        'rainybara': '#7DA3EC',
+        'rainybara-sec': '#82AFBA',
+        'russetbara': '#FBBD25',
+        'russetbara-sec': '#FFE88E',
+        'cozybara': '#BA76EA',
+        'cozybara-sec': '#E7CFFF'
+      },
     }
   },
   plugins: [require('daisyui')],
@@ -32,16 +56,6 @@ export default {
           ...require('daisyui/src/theming/themes')['light'],
           primary: '#FFC872',
           secondary: '#EFE69F',
-          primarySproutbara: '#2DEAB7',
-          secondarySproutbara: '#88F2BC',
-          primarySunnybara: '#FEA655',
-          secondarySunnybara: '#F7DDB0',
-          primaryRainybara: '#7DA3EC',
-          secondaryRainybara: '#82AFBA',
-          primaryRussetbara: '#FBBD25',
-          secondaryRussetbara: '#FFE88E',
-          primaryCozybara: '#BA76EA',
-          secondaryCozybara: '#E7CFFF'
         }
       }
     ]
