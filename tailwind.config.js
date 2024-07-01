@@ -32,16 +32,16 @@ export default {
           ...require('daisyui/src/theming/themes')['light'],
           primary: '#FFC872',
           secondary: '#EFE69F',
-          primarySprout: '#2DEAB7',
-          secondarySprout: '#88F2BC',
-          primarySunny: '#FEA655',
-          secondarySunny: '#F7DDB0',
-          primaryRainy: '#7DA3EC',
-          secondaryRainy: '#82AFBA',
-          primaryRusset: '#FBBD25',
-          secondaryRusset: '#FFE88E',
-          primaryCozy: '#BA76EA',
-          secondaryCozy: '#E7CFFF'
+          primarySproutbara: '#2DEAB7',
+          secondarySproutbara: '#88F2BC',
+          primarySunnybara: '#FEA655',
+          secondarySunnybara: '#F7DDB0',
+          primaryRainybara: '#7DA3EC',
+          secondaryRainybara: '#82AFBA',
+          primaryRussetbara: '#FBBD25',
+          secondaryRussetbara: '#FFE88E',
+          primaryCozybara: '#BA76EA',
+          secondaryCozybara: '#E7CFFF'
         }
       }
     ]
