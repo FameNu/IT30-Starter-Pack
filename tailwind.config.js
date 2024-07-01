@@ -23,29 +23,29 @@ export default {
         notosansthai: ['Noto Sans Thai', 'sans-serif']
       },
       colors: {
-        'sproutbara': '#2DEAB7',
+        sproutbara: '#2DEAB7',
         'sproutbara-sec': '#88F2BC',
-        'sunnybara': '#FEA655',
+        sunnybara: '#FEA655',
         'sunnybara-sec': '#F7DDB0',
-        'rainybara': '#7DA3EC',
+        rainybara: '#7DA3EC',
         'rainybara-sec': '#82AFBA',
-        'russetbara': '#FBBD25',
+        russetbara: '#FBBD25',
         'russetbara-sec': '#FFE88E',
-        'cozybara': '#BA76EA',
+        cozybara: '#BA76EA',
         'cozybara-sec': '#E7CFFF'
       },
       backgroundColor: {
-        'sproutbara': '#2DEAB7',
+        sproutbara: '#2DEAB7',
         'sproutbara-sec': '#88F2BC',
-        'sunnybara': '#FEA655',
+        sunnybara: '#FEA655',
         'sunnybara-sec': '#F7DDB0',
-        'rainybara': '#7DA3EC',
+        rainybara: '#7DA3EC',
         'rainybara-sec': '#82AFBA',
-        'russetbara': '#FBBD25',
+        russetbara: '#FBBD25',
         'russetbara-sec': '#FFE88E',
-        'cozybara': '#BA76EA',
+        cozybara: '#BA76EA',
         'cozybara-sec': '#E7CFFF'
-      },
+      }
     }
   },
   plugins: [require('daisyui')],
@@ -55,7 +55,7 @@ export default {
         light: {
           ...require('daisyui/src/theming/themes')['light'],
           primary: '#FFC872',
-          secondary: '#EFE69F',
+          secondary: '#EFE69F'
         }
       }
     ]
