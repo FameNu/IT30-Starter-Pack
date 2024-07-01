@@ -17,7 +17,7 @@ import HamurgerMenu from '@/components/social/HamurgerMenu.vue';
       class="max-lg:h-screen w-dvw md:w-full fixed lg:-bottom-4 opacity-60"
     />
   </div>
-  <footer class="fixed bottom-5 right-5 z-50 h-20">
+  <footer class="fixed bottom-5 right-5 z-50">
     <HamurgerMenu />
   </footer>
 </template>
