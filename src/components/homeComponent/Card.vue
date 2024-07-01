@@ -29,7 +29,8 @@ defineEmits(['onHover', 'onLeave'])
       />
     </div>
     <div
-      class="w-fit select-none card-name py-3 px-6 bg-slate-100 rounded-xl"
+      class="w-fit select-none card-name py-3 px-6 rounded-xl"
+      :class="[`bg-${name?.toLowerCase()}`]"
     >
       {{ name }}
     </div>
