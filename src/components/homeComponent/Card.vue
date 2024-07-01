@@ -17,21 +17,22 @@ defineEmits(['onHover', 'onLeave'])
     @mouseleave="$emit('onLeave')"
     @touchstart="$emit('onHover')"
     @touchend="$emit('onLeave')"
+    :class="[{ 'shrink-size-img': !isHovered, 'card-hovering': isHovered && hovering }]"
   >
     <div
-      :class="[
-        'relative h-fit w-fit rounded-b-full card-image-container',
-        { 'shrink-size-img': !isHovered,
-            'card-hovering': isHovered && hovering
-         }
-      ]"
+      class="h-fit w-fit rounded-b-full card-image-container"
     >
-      <img :class="['mascot h-48', {'mascot-bounce': isHovered && hovering}]" :src="image" :alt="name" />
+      <img
+        :class="['mascot h-48', { 'mascot-bounce': isHovered && hovering }]"
+        :src="image"
+        :alt="name"
+      />
     </div>
-    <div 
-        class="w-fit select-none card-name py-3 px-6 bg-slate-100 rounded-xl" 
-        :class="[{'card-name-hovering': isHovered && hovering}]"
-    >{{ name }}</div>
+    <div
+      class="w-fit select-none card-name py-3 px-6 bg-slate-100 rounded-xl"
+    >
+      {{ name }}
+    </div>
   </div>
 </template>
 

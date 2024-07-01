@@ -18,8 +18,8 @@ import IgIcon from '@/components/icons/IgIcon.vue'
     />
   </div>
   <footer class="fixed bottom-5 right-5 z-50 h-20">
-    <IgIcon @click="$router.push('locations')" color="green"/>
-    <IgIcon/>
+    <IgIcon @click="$router.push('locations')" color="green" />
+    <IgIcon />
   </footer>
 </template>
 

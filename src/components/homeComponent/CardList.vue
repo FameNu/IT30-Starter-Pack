@@ -17,7 +17,7 @@ const handleMouseEnter = (index: number) => {
 
 const handleMouseLeave = () => {
   hoverCardIndex.value = null
-    hovering.value = false
+  hovering.value = false
 }
 </script>
 
