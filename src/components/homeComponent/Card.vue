@@ -27,7 +27,7 @@ defineEmits(['onHover', 'onLeave'])
         :alt="name"
       />
     </div>
-    <div class="w-fit card-name py-3 px-6 rounded-xl" :class="getBgClass(name)">
+    <div class="w-fit card-name text-header-desktop py-3 px-6 rounded-xl" :class="getBgClass(name)">
       {{ name }}
     </div>
   </div>
