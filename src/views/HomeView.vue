@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import CardList from '@/components/homeComponent/CardList.vue'
-import IgIcon from '@/components/icons/IgIcon.vue'
 const cardData = [
   {
     name: 'Sproutbara',
