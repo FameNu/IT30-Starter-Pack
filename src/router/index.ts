@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
 import LocaltionView from '@/views/LocaltionView.vue'
+import BoardView from '@/views/BoardView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,6 +15,11 @@ const router = createRouter({
       path: '/locations',
       name: 'locations',
       component: LocaltionView
+    },
+    {
+      path: '/boards',
+      name: 'boards',
+      component: BoardView
     }
   ]
 })
