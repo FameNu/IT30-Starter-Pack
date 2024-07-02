@@ -8,13 +8,16 @@ defineProps<{
 }>()
 
 const hoverCardIndex = ref<number | null>(null)
+const hovering = ref<boolean>(false)
 
 const handleMouseEnter = (index: number) => {
   hoverCardIndex.value = index
+  hovering.value = true
 }
 
 const handleMouseLeave = () => {
   hoverCardIndex.value = null
+  hovering.value = false
 }
 
 const handleCardClick = (index: number) => {
@@ -24,7 +27,7 @@ const handleCardClick = (index: number) => {
 
 <template>
   <div
-    class="card-list w-full max-w-[1300px] min-h-[500px] max-md:list-mobile md:list-medium-screen xl:list-desktop"
+    class="card-list w-full max-w-[1300px] max-md:list-mobile md:list-medium-screen xl:list-desktop"
   >
     <Card
       v-for="(card, index) in cardData"
@@ -32,10 +35,10 @@ const handleCardClick = (index: number) => {
       :image="card.image"
       :name="card.name"
       :island="card.island"
-      :position="card.position"
       :isHovered="hoverCardIndex === index || hoverCardIndex === null"
       @onHover="handleMouseEnter(index)"
       @onLeave="handleMouseLeave"
+      :hovering="hovering"
       @cardClick="handleCardClick(index)"
     />
   </div>
