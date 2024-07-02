@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import igSVG from '@/assets/svg/igSVG.vue'
 import MenuIcon from '@/components/icons/MenuIcon.vue'
-
-const props = defineProps({
+import MapSVG from '@/assets/svg/mapSVG.vue'
+defineProps({
   color: {
     type: String,
-    default: '#ffffff'
+    default: 'white'
   }
 })
 </script>
@@ -13,7 +12,7 @@ const props = defineProps({
 <template>
   <MenuIcon>
     <template #default>
-      <igSVG :color="props.color" />
+      <MapSVG :color="color" />
     </template>
   </MenuIcon>
 </template>

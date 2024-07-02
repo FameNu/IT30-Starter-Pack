@@ -3,7 +3,7 @@ import LocationCard from '@/components/localtionComponent/LocationCard.vue'
 import { type LocationsArgs } from '@/models/Locations'
 
 // Path of the image for testing
-const pathOfImgTest: string = 'public/bg/bg7.png'
+const pathOfImgTest: string = '/public/bg/bg7.png'
 
 // Create a dummy data for testing
 const locations: Array<LocationsArgs> = new Array()
