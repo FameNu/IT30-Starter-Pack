@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import CardList from '@/components/homeComponent/CardList.vue'
-const cardData = [
+import type { CardArgs } from '@/models/Card'
+const cardData: CardArgs[] = [
   {
     name: 'Sproutbara',
     image: '/mascot/sproutbara.png'
