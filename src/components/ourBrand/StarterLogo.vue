@@ -2,7 +2,7 @@
 defineProps({
   size: {
     type: String,
-    default: 'h-20'
+    default: 'h-14 md:h-20'
   }
 })
 </script>
