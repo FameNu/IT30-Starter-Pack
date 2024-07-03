@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import SITAndStarter from '@/components/ourBrand/SITAndStarter.vue'
+import HamurgerMenu from '@/components/social/HamurgerMenu.vue';
 </script>
 
 <template>
@@ -13,9 +14,10 @@ import SITAndStarter from '@/components/ourBrand/SITAndStarter.vue'
     <img
       src="/bg/bg6.png"
       alt="main-bg-image"
-      class="max-lg:h-screen w-dvw md:w-full fixed lg:-bottom-4"
+      class="max-lg:h-screen w-dvw md:w-full fixed lg:-bottom-4 opacity-60"
     />
   </div>
+  <footer class="fixed bottom-5 right-5 z-50">
+    <HamurgerMenu />
+  </footer>
 </template>
-
-<style scoped></style>
