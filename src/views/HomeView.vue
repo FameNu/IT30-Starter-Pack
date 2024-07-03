@@ -1,41 +1,20 @@
 <script setup lang="ts">
 import CardList from '@/components/homeComponent/CardList.vue'
-import axios from 'axios';
-import { ref } from 'vue';
+import axios from 'axios'
+import { type Item } from '@/models/Card'
+import { ref } from 'vue'
 
-interface Item {
-  id: number;
-  attributes: object;
-}
+const dataArray = ref<Item[]>([])
 
-// const data = await axios.get('http://it30starterpack.sit.kmutt.ac.th:1337/api/lands')
-
-const data = async ()  => {
+const data = async () => {
   const response = await axios.get('http://it30starterpack.sit.kmutt.ac.th:1337/api/lands')
-  // return Object.values(response.data)[0]
-  console.log(response.data.data);
-  const dataArray: Item[] = response.data.data
-  return (dataArray)
+  const items: Item[] = response.data.data
+  return items
 }
-const dataArray = data()
-console.log(dataArray);
 
-
-// const data = () => {
-//   axios.get<Item[]>('http://it30starterpack.sit.kmutt.ac.th:1337/api/lands')
-//     .then(response => {
-//       const dataArray: Item[] = response.data;
-//       console.log(dataArray);
-      
-//       return dataArray
-//     })
-//     .catch(error => {
-//       console.error('Error fetching data:', error);
-//     });
-// }
-// const dataArray = data()
-// console.log(dataArray);
-
+dataArray.value = await data()
+const duse = dataArray.value
+console.log(duse[0]);
 
 const cardData = [
   {
@@ -69,6 +48,6 @@ const cardData = [
       <h1 class="text-header-desktop">Welcome to Capy Mellow Land</h1>
       <h2 class="text-header-desktop">Where you want to visit?</h2>
     </div>
-    <CardList :card-data="cardData" />
+    <CardList :cardData="duse" />
   </div>
 </template>

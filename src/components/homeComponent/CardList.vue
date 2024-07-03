@@ -1,14 +1,20 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import router from '@/router';
-import { type CardArgs } from '@/models/Card'
+import { type Item } from '@/models/Card'
 import { useCapybaraStore } from '@/store/global'
 import Card from '@/components/homeComponent/Card.vue'
 
-defineProps<{
-  // cardData: CardArgs[]
-  cardData: {}
+// defineProps<{
+//   // cardData: CardArgs[]
+//   cardData: Item[]
+// }>()
+
+const kuy = defineProps<{
+  cardData: Item[]
 }>()
+console.log(kuy.cardData);
+
 
 const capybaraStore = useCapybaraStore()
 const hoverCardIndex = ref<number | null>(null)
@@ -39,13 +45,13 @@ const handleCardClick = (name : string) => {
     <Card
       v-for="(card, index) in cardData"
       :key="index"
-      :image="card.image"
-      :name="card.name"
+      :name="card.attributes.landName"
+      :image="`/mascot/${card.attributes.landName.toLowerCase()}.png`"
       :isHovered="hoverCardIndex === index || hoverCardIndex === null"
+      :hovering="hovering"
       @onHover="handleMouseEnter(index)"
       @onLeave="handleMouseLeave"
-      :hovering="hovering"
-      @cardClick="handleCardClick(card.name)"
+      @cardClick="handleCardClick(card.attributes.landName)"
     />
   </div>
 </template>
