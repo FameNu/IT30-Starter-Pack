@@ -14,7 +14,7 @@ import HamurgerMenu from '@/components/social/HamurgerMenu.vue';
     <img
       src="/bg/bg6.png"
       alt="main-bg-image"
-      class="max-lg:h-screen w-dvw md:w-full fixed lg:-bottom-4 opacity-60"
+      class="max-[1175px]:h-screen min-[1175px]:w-full fixed min-[1175px]:-bottom-4 opacity-60"
     />
   </div>
   <footer class="fixed bottom-5 right-5 z-50">
