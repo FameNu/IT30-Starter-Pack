@@ -1,5 +1,42 @@
 <script setup lang="ts">
 import CardList from '@/components/homeComponent/CardList.vue'
+import axios from 'axios';
+import { ref } from 'vue';
+
+interface Item {
+  id: number;
+  attributes: object;
+}
+
+// const data = await axios.get('http://it30starterpack.sit.kmutt.ac.th:1337/api/lands')
+
+const data = async ()  => {
+  const response = await axios.get('http://it30starterpack.sit.kmutt.ac.th:1337/api/lands')
+  // return Object.values(response.data)[0]
+  console.log(response.data.data);
+  const dataArray: Item[] = response.data.data
+  return (dataArray)
+}
+const dataArray = data()
+console.log(dataArray);
+
+
+// const data = () => {
+//   axios.get<Item[]>('http://it30starterpack.sit.kmutt.ac.th:1337/api/lands')
+//     .then(response => {
+//       const dataArray: Item[] = response.data;
+//       console.log(dataArray);
+      
+//       return dataArray
+//     })
+//     .catch(error => {
+//       console.error('Error fetching data:', error);
+//     });
+// }
+// const dataArray = data()
+// console.log(dataArray);
+
+
 const cardData = [
   {
     name: 'Sproutbara',
