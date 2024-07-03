@@ -6,15 +6,24 @@ import { ref } from 'vue'
 
 const dataArray = ref<Item[]>([])
 
-const data = async () => {
+const setDataArray = async () => {
   const response = await axios.get('http://it30starterpack.sit.kmutt.ac.th:1337/api/lands')
   const items: Item[] = response.data.data
-  return items
+  dataArray.value = items
+  console.log(dataArray.value[0].attributes.landName);
 }
 
-dataArray.value = await data()
-const duse = dataArray.value
-console.log(duse[0]);
+setDataArray()
+
+// const data = async () => {
+//   const response = await axios.get('http://it30starterpack.sit.kmutt.ac.th:1337/api/lands')
+//   const items: Item[] = response.data.data
+//   return items
+// }
+
+// dataArray.value = await data()
+// const duse = dataArray.value
+// console.log(duse[0]);
 
 const cardData = [
   {
@@ -48,6 +57,6 @@ const cardData = [
       <h1 class="text-header-desktop">Welcome to Capy Mellow Land</h1>
       <h2 class="text-header-desktop">Where you want to visit?</h2>
     </div>
-    <CardList :cardData="duse" />
+    <CardList :cardData="dataArray" />
   </div>
 </template>
