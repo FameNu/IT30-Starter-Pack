@@ -18,7 +18,6 @@ const initMessages = async () => {
 
 onMounted(() => {
   socket.on('connect', () => {
-    console.log('Connected to server:', socket.id);
     initMessages();   
   });
   console.log(import.meta.env.BASE_URL)
