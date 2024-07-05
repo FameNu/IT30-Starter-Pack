@@ -17,28 +17,29 @@ for (let i = 0; i < 7; i++) {
     pathToImg: pathOfImgTest,
     name: `testing img + ${i}`,
     description: 'this is an description of ' + i,
-    link: 'https://www.google.com?=location' + i
+    link: 'https://maps.app.goo.gl/CuXv2zGn8Vjwyryu6'
   }
   locations.push(location)
 }
 </script>
 
 <template>
-  <div class="w-full h-auto flex">
-    <section id="locations-table" class="grid grid-cols-2 max-w-[60vw]">
-      <div v-for="location in locations">
-        <LocationCard :nameOfImage="location.name" :pathOfImg="location.pathToImg">
-          <template #name>{{ location.name }}</template>
-          <template #description>{{ location.description }}</template>
-        </LocationCard>
+  <div class="grid grid-cols-3 grid-rows-1 gap-4">
+    <div class="col-span-2">
+      <section id="locations-table" class="grid grid-cols-2 max-w-[60vw]">
+        <div v-for="location in locations">
+          <LocationCard :nameOfImage="location.name" :pathOfImg="location.pathToImg" :link="location.link">
+            <template #name>{{ location.name }}</template>
+            <template #description>{{ location.description }}</template>
+          </LocationCard>
+        </div>
+      </section>
+    </div>
+    <div class="col-start-3">
+      <div class="w-full h-full">
+        <img :src="pathMascot" alt="CAPYBARA" class=" h-1/3 fixed top-1/4" />
       </div>
-    </section>
-    <section class="w-full h-screen flex">
-      <!-- Image base on thier hover -->
-      <div class="relative flex flex-col justify-center align-middle">
-        <img :src="pathMascot" alt="CAPYBARA" class="size-[200px] fixed" />
-      </div>
-    </section>
+    </div>
   </div>
 </template>
 
