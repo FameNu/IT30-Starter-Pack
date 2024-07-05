@@ -1,8 +1,13 @@
-interface LocationsArgs {
-  pathToImg: string
-  name: string
-  description: string
-  link: string
+interface LocationsParentAttributes {
+  attributes: LocationsAttributes,
 }
 
-export { type LocationsArgs }
+interface LocationsAttributes {
+  name: string,
+  desc: string,
+  linkMap: string,
+  typeOfLocation: string,
+  image: any,
+}
+
+export { type LocationsParentAttributes, type LocationsAttributes }
