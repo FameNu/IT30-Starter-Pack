@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import SITAndStarter from '@/components/ourBrand/SITAndStarter.vue'
-import HamurgerMenu from '@/components/social/HamurgerMenu.vue';
+import HamburgerMenu from '@/components/social/HamburgerMenu.vue';
 </script>
 
 <template>
@@ -18,6 +18,6 @@ import HamurgerMenu from '@/components/social/HamurgerMenu.vue';
     />
   </div>
   <footer class="fixed bottom-5 right-5 z-50">
-    <HamurgerMenu />
+    <HamburgerMenu />
   </footer>
 </template>
