@@ -13,7 +13,7 @@ import HamburgerMenu from '@/components/social/HamburgerMenu.vue';
   <div class="-z-10 absolute top-0 w-screen h-screen">
     <img
       src="/bg/bg6.png"
-      alt="main-bg-image"
+      alt="main-bg"
       class="max-lg:h-screen w-dvw md:w-full fixed lg:-bottom-4 opacity-60"
     />
   </div>
