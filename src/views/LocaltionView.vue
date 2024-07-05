@@ -3,7 +3,10 @@ import LocationCard from '@/components/localtionComponent/LocationCard.vue'
 import { type LocationsArgs } from '@/models/Locations'
 
 // Path of the image for testing
-const pathOfImgTest: string = '/public/bg/bg7.png'
+const GGDriveShowImage: string = import.meta.env.VITE_GD_IMAGE as string
+const ImageID: string = '1IdXgY5i5zw96aAyr8z2GjSKbwxaD04tX'
+const pathOfImgTest: string = GGDriveShowImage + ImageID
+const pathMascot: string = '/mainMascotAction/Mascot-Action-5.png'
 
 // Create a dummy data for testing
 const locations: Array<LocationsArgs> = new Array()
@@ -21,7 +24,7 @@ for (let i = 0; i < 7; i++) {
 </script>
 
 <template>
-  <div class="w-auto h-auto flex">
+  <div class="w-full h-auto flex">
     <section id="locations-table" class="grid grid-cols-2 max-w-[60vw]">
       <div v-for="location in locations">
         <LocationCard :nameOfImage="location.name" :pathOfImg="location.pathToImg">
@@ -33,7 +36,7 @@ for (let i = 0; i < 7; i++) {
     <section class="w-full h-screen flex">
       <!-- Image base on thier hover -->
       <div class="relative flex flex-col justify-center align-middle">
-        <img :src="pathOfImgTest" alt="CAPYBARA" class="size-[200px] fixed" />
+        <img :src="pathMascot" alt="CAPYBARA" class="size-[200px] fixed" />
       </div>
     </section>
   </div>
