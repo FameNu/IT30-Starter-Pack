@@ -1,11 +1,11 @@
-import axios, { type AxiosResponse } from "axios";
+import axios from "axios";
 import { type ResponseObject } from "@/models/ResponseObject";
-const URL = "http://it30starterpack.sit.kmutt.ac.th:1337/api"
+const URL = import.meta.env.VITE_APP_BASE_URL as string
+console.log(URL)
 
-async function fetchData (path: string, param?: string) : Promise<ResponseObject> {
-    const response = await axios.get(path, {
+async function fetchData (uri: string) : Promise<ResponseObject> {
+    const response = await axios.get(uri, {
         baseURL: URL,
-        params: param
     })
     if (response.status !== 200) throw new Error("Failed to fetch data : " + response.statusText)
     return response.data as ResponseObject

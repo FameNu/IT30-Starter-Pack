@@ -1,11 +1,6 @@
 <script setup lang="ts">
 import SITAndStarter from '@/components/ourBrand/SITAndStarter.vue'
 import HamurgerMenu from '@/components/social/HamurgerMenu.vue';
-
-import { fetchData } from './utils/fetchData';
-
-const res = await fetchData('/lands');
-console.log(res.data);
 </script>
 
 <template>
