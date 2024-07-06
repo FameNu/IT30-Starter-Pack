@@ -1,12 +1,22 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { type CardArgs } from '@/models/Card'
+import router from '@/router';
+import { type Item } from '@/models/Card'
+import { useCapybaraStore } from '@/store/global'
 import Card from '@/components/homeComponent/Card.vue'
 
-defineProps<{
-  cardData: CardArgs[]
-}>()
+// defineProps<{
+//   // cardData: CardArgs[]
+//   cardData: Item[]
+// }>()
 
+const kuy = defineProps<{
+  cardData: Item[]
+}>()
+console.log(kuy.cardData);
+
+
+const capybaraStore = useCapybaraStore()
 const hoverCardIndex = ref<number | null>(null)
 const hovering = ref<boolean>(false)
 
@@ -19,6 +29,13 @@ const handleMouseLeave = () => {
   hoverCardIndex.value = null
   hovering.value = false
 }
+
+const handleCardClick = (name : string) => {
+  console.log(name);
+  capybaraStore.setCapybaraName(name);
+  router.push({ name: 'seasons', params: { seasons: `${name}` } });
+
+};
 </script>
 
 <template>
@@ -28,12 +45,13 @@ const handleMouseLeave = () => {
     <Card
       v-for="(card, index) in cardData"
       :key="index"
-      :image="card.image"
-      :name="card.name"
+      :name="card.attributes.landName"
+      :image="`/mascot/${card.attributes.landName.toLowerCase()}.png`"
       :isHovered="hoverCardIndex === index || hoverCardIndex === null"
+      :hovering="hovering"
       @onHover="handleMouseEnter(index)"
       @onLeave="handleMouseLeave"
-      :hovering="hovering"
+      @cardClick="handleCardClick(card.attributes.landName)"
     />
   </div>
 </template>

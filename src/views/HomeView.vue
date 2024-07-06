@@ -1,5 +1,30 @@
 <script setup lang="ts">
 import CardList from '@/components/homeComponent/CardList.vue'
+import axios from 'axios'
+import { type Item } from '@/models/Card'
+import { ref } from 'vue'
+
+const dataArray = ref<Item[]>([])
+
+const setDataArray = async () => {
+  const response = await axios.get('http://it30starterpack.sit.kmutt.ac.th:1337/api/lands')
+  const items: Item[] = response.data.data
+  dataArray.value = items
+  console.log(dataArray.value[0].attributes.landName);
+}
+
+setDataArray()
+
+// const data = async () => {
+//   const response = await axios.get('http://it30starterpack.sit.kmutt.ac.th:1337/api/lands')
+//   const items: Item[] = response.data.data
+//   return items
+// }
+
+// dataArray.value = await data()
+// const duse = dataArray.value
+// console.log(duse[0]);
+
 import type { CardArgs } from '@/models/Card'
 const cardData: CardArgs[] = [
   {
@@ -33,6 +58,6 @@ const cardData: CardArgs[] = [
       <h1 class="text-header-desktop">Welcome to Capy Mellow Land</h1>
       <h2 class="text-header-desktop">Where you want to visit?</h2>
     </div>
-    <CardList :card-data="cardData" />
+    <CardList :cardData="dataArray" />
   </div>
 </template>

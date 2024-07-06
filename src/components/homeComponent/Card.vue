@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { type Item } from '@/models/Card'
 import getBgClass from '@/utils/className';
 defineProps({
   name: String,
@@ -7,7 +8,7 @@ defineProps({
   hovering: Boolean
 })
 
-defineEmits(['onHover', 'onLeave'])
+defineEmits(["onHover", "onLeave", "cardClick"]);
 </script>
 
 <template>
@@ -15,6 +16,7 @@ defineEmits(['onHover', 'onLeave'])
     class="w-fit mx-auto flex flex-col items-center justify-center card-container"
     @mouseenter="$emit('onHover')"
     @mouseleave="$emit('onLeave')"
+    @click="$emit('cardClick')"
     @touchstart="$emit('onHover')"
     @touchend="$emit('onLeave')"
     :class="[{ 'shrink-size-img': !isHovered, 'card-hovering': isHovered && hovering }]"

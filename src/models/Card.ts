@@ -1,6 +1,9 @@
-interface CardArgs {
-  image: string
-  name: string
+export type Item ={
+  id: number,
+  attributes: {
+    landName: string,
+    createAt: string,
+    updateAt: string,
+    publishedAt: string,
+  }
 }
-
-export type { CardArgs }
