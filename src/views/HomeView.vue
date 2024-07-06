@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import CardList from '@/components/homeComponent/CardList.vue'
-const cardData = [
+import type { CardArgs } from '@/models/Card'
+const cardData: CardArgs[] = [
   {
     name: 'Sproutbara',
     image: '/mascot/sproutbara.png'
@@ -27,7 +28,7 @@ const cardData = [
 <template>
   <div class="h-full flex flex-col lg:justify-center items-center gap-16">
     <div
-      class="bg-yellow-300 w-fit py-4 px-10 mt-2 mx-auto rounded-xl flex flex-col items-center shadow-xl"
+      class="bg-primary w-fit py-4 px-6 mt-2 mx-auto rounded-xl flex flex-col items-center shadow-xl"
     >
       <h1 class="text-header-desktop">Welcome to Capy Mellow Land</h1>
       <h2 class="text-header-desktop">Where you want to visit?</h2>
