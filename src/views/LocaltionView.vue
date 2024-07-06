@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import LocationCard from '@/components/localtionComponent/LocationCard.vue'
+import LocationCard from '@/components/localtionComponent/LocationCard.vue'\
 import { type LocationsParentAttributes } from '@/models/Locations'
 import type { ResponseObject } from '@/models/ResponseObject'
 import { onBeforeMount, ref } from 'vue'
@@ -11,41 +11,44 @@ onBeforeMount(async () => {
   const response: ResponseObject = await fetchData('/locations?populate=image')
   Object.assign(locations.value, response.data as LocationsParentAttributes[])
 })
+import BackHome from '@/components/actions/BackHome.vue';
+import { type LocationsArgs } from '@/models/Locations'
 
-// // Path of the image for testing
-// const pathOfImgTest: string = '/public/bg/bg7.png'
+// Path of the image for testing
+const GGDriveShowImage: string = import.meta.env.VITE_GD_IMAGE as string
+const ImageID: string = '1IdXgY5i5zw96aAyr8z2GjSKbwxaD04tX'
+const pathOfImgTest: string = GGDriveShowImage + ImageID
+const pathMascot: string = '/mainMascotAction/Mascot-Action-5.png'
 
-// // Create a dummy data for testing
-// const locations: Array<LocationsArgs> = new Array()
-
-// // Create a dummy data for testing
-// for (let i = 0; i < 7; i++) {
-//   const location: LocationsArgs = {
-//     pathToImg: pathOfImgTest,
-//     name: `testing img + ${i}`,
-//     description: 'this is an description of ' + i,
-//     link: 'https://www.google.com?=location' + i
-//   }
-//   locations.push(location)
-// }
+// Create a dummy data for testing
+for (let i = 0; i < 7; i++) {
+  const location: LocationsArgs = {
+    pathToImg: pathOfImgTest,
+    name: `testing img + ${i}`,
+    description: 'this is an description of ' + i,
+    link: 'https://maps.app.goo.gl/CuXv2zGn8Vjwyryu6'
+  }
+  locations.push(location)
+}
 </script>
 
 <template>
-  <div class="w-auto h-auto flex">
-    <section id="locations-table" class="grid grid-cols-2 max-w-[60vw]">
-      <div v-for="location in locations">
-        <LocationCard :nameOfImage="location.attributes.name" pathOfImg="/public/bg/bg7.png">
-          <template #name>{{ location.attributes.name }}</template>
-          <template #description>{{ location.attributes.desc }}</template>
-        </LocationCard>
+  <BackHome />
+  <div class="grid grid-cols-3 grid-rows-1 gap-4">
+    <div class="col-span-2">
+      <section id="locations-table" class="grid grid-cols-2 max-w-[60vw]">
+        <div v-for="location in locations">
+          <LocationCard
+            :location="location"
+          />
+        </div>
+      </section>
+    </div>
+    <div class="col-start-3">
+      <div class="w-full h-full">
+        <img :src="pathMascot" alt="CAPYBARA" class="h-1/3 fixed top-1/4" />
       </div>
-    </section>
-    <section class="w-full h-screen flex">
-      <!-- Image base on thier hover -->
-      <div class="relative flex flex-col justify-center align-middle">
-        <img :src="'/public/bg/bg7.png'" alt="CAPYBARA" class="size-[200px] fixed" />
-      </div>
-    </section>
+    </div>
   </div>
 </template>
 

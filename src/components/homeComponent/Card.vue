@@ -3,7 +3,6 @@ import getBgClass from '@/utils/className';
 defineProps({
   name: String,
   image: String,
-  island: String,
   isHovered: Boolean,
   hovering: Boolean
 })

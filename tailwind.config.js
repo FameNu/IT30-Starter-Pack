@@ -23,6 +23,7 @@ export default {
         notosansthai: ['Noto Sans Thai', 'sans-serif']
       },
       colors: {
+        'base-main': '#544022',
         sproutbara: '#2DEAB7',
         'sproutbara-sec': '#88F2BC',
         sunnybara: '#FEA655',
