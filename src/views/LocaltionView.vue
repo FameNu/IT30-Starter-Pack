@@ -1,5 +1,16 @@
 <script setup lang="ts">
-import LocationCard from '@/components/localtionComponent/LocationCard.vue'
+import LocationCard from '@/components/localtionComponent/LocationCard.vue'\
+import { type LocationsParentAttributes } from '@/models/Locations'
+import type { ResponseObject } from '@/models/ResponseObject'
+import { onBeforeMount, ref } from 'vue'
+import { fetchData } from '@/utils/fetchData'
+
+const locations = ref<LocationsParentAttributes[]>([])
+onBeforeMount(async () => {
+  console.log('Before Mount')
+  const response: ResponseObject = await fetchData('/locations?populate=image')
+  Object.assign(locations.value, response.data as LocationsParentAttributes[])
+})
 import BackHome from '@/components/actions/BackHome.vue';
 import { type LocationsArgs } from '@/models/Locations'
 
@@ -8,9 +19,6 @@ const GGDriveShowImage: string = import.meta.env.VITE_GD_IMAGE as string
 const ImageID: string = '1IdXgY5i5zw96aAyr8z2GjSKbwxaD04tX'
 const pathOfImgTest: string = GGDriveShowImage + ImageID
 const pathMascot: string = '/mainMascotAction/Mascot-Action-5.png'
-
-// Create a dummy data for testing
-const locations: Array<LocationsArgs> = new Array()
 
 // Create a dummy data for testing
 for (let i = 0; i < 7; i++) {
