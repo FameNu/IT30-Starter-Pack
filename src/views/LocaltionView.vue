@@ -2,7 +2,7 @@
 import LocationCard from '@/components/localtionComponent/LocationCard.vue'
 import { type LocationsParentAttributes } from '@/models/Locations'
 import type { ResponseObject } from '@/models/ResponseObject'
-import { onBeforeMount, onMounted, reactive, ref } from 'vue'
+import { onBeforeMount, ref } from 'vue'
 import { fetchData } from '@/utils/fetchData'
 
 const locations = ref<LocationsParentAttributes[]>([])
