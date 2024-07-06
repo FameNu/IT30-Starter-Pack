@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import LocationCard from '@/components/localtionComponent/LocationCard.vue'\
+import { onBeforeMount, ref } from 'vue'
+
 import { type LocationsParentAttributes } from '@/models/Locations'
 import type { ResponseObject } from '@/models/ResponseObject'
-import { onBeforeMount, ref } from 'vue'
 import { fetchData } from '@/utils/fetchData'
+
+import BackHome from '@/components/actions/BackHome.vue';
+import LocationCard from '@/components/localtionComponent/LocationCard.vue'
 
 const locations = ref<LocationsParentAttributes[]>([])
 onBeforeMount(async () => {
@@ -11,8 +14,6 @@ onBeforeMount(async () => {
   const response: ResponseObject = await fetchData('/locations?populate=image')
   Object.assign(locations.value, response.data as LocationsParentAttributes[])
 })
-import BackHome from '@/components/actions/BackHome.vue';
-import { type LocationsArgs } from '@/models/Locations'
 
 // Path of the image for testing
 const GGDriveShowImage: string = import.meta.env.VITE_GD_IMAGE as string
@@ -22,13 +23,16 @@ const pathMascot: string = '/mainMascotAction/Mascot-Action-5.png'
 
 // Create a dummy data for testing
 for (let i = 0; i < 7; i++) {
-  const location: LocationsArgs = {
-    pathToImg: pathOfImgTest,
-    name: `testing img + ${i}`,
-    description: 'this is an description of ' + i,
-    link: 'https://maps.app.goo.gl/CuXv2zGn8Vjwyryu6'
+  const location: LocationsParentAttributes = {
+    attributes: {
+      image: pathOfImgTest,
+      name: `testing img + ${i}`,
+      desc: 'this is an description of ' + i,
+      typeOfLocation: 'testing',
+      linkMap: 'https://maps.app.goo.gl/CuXv2zGn8Vjwyryu6'
+    }
   }
-  locations.push(location)
+  locations.value.push(location)
 }
 </script>
 
@@ -38,9 +42,7 @@ for (let i = 0; i < 7; i++) {
     <div class="col-span-2">
       <section id="locations-table" class="grid grid-cols-2 max-w-[60vw]">
         <div v-for="location in locations">
-          <LocationCard
-            :location="location"
-          />
+          <LocationCard :location="location" />
         </div>
       </section>
     </div>
@@ -51,5 +53,3 @@ for (let i = 0; i < 7; i++) {
     </div>
   </div>
 </template>
-
-<style scoped></style>
