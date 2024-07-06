@@ -1,30 +1,48 @@
 <script setup lang="ts">
 import Form from "@/components/boardComponent/Form.vue";
+import { type Land } from "@/models/Lands";
 import { ref, onMounted } from 'vue';
 import { io } from 'socket.io-client';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL
 const socket = io(BASE_URL);
 
-
 const messages = ref<string[]>([]);
 const isModalOpen = ref(false);
+const lands = ref<Land[]>([])
+
+const dataLoaded = ref(false);
+
+const mapLandData = (data: any[]): Land[] => {
+  return data.map(item => ({
+    id: item.id,
+    name: item.attributes.landName
+  }));
+};
 
 const initMessages = async () => {
     const response = await fetch(`${BASE_URL}/api/messages`);
     const data = await response.json();
-    messages.value = data.data.map((message: { attributes: { message: string; }; }) => message.attributes.message)
+    messages.value = data.data.map((message: { attributes: { message: string; }; }) => message.attributes.message)    
 } 
 
-onMounted(() => {
+const intiLands = async ()=> {
+    const response = await fetch(`${BASE_URL}/api/lands`);
+    const data = await response.json();
+    lands.value = mapLandData(data.data);
+    dataLoaded.value = true;
+}
+
+
+onMounted(() => {  
   socket.on('connect', () => {
     initMessages();   
+    intiLands();
   });
-  console.log(import.meta.env.BASE_URL)
 });
 
-const addMessage = async (newMessage: string) => {
-  const newMessageObj = { data: { message: newMessage } };
+const addMessage = async (newMessage: Land) => {
+  const newMessageObj = { data: newMessage };
   try {
       const response = await fetch(`${BASE_URL}/api/messages`, {
         method: 'POST',
@@ -54,7 +72,7 @@ const closeModal = () => {
   isModalOpen.value = false;
 };
 
-const handleModalSubmit = (message: string) => {
+const handleModalSubmit = (message: Land) => {
   addMessage(message);
   closeModal();
 };
@@ -70,7 +88,7 @@ const handleModalSubmit = (message: string) => {
           {{ message }}
         </div>
       </div>
-      <Form :show="isModalOpen" @close="closeModal" @submit="handleModalSubmit" />
+      <Form v-if="dataLoaded && isModalOpen" :show="isModalOpen" :lands="lands" @close="closeModal" @submit="handleModalSubmit" />
     </div>
   </template>
 

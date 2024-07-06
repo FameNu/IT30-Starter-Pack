@@ -1,21 +1,31 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { io } from 'socket.io-client';
+import { type Land } from "@/models/Lands";
+import LandsOptions from "@/components/boardComponent/LandsOptions.vue";
 
+const props = defineProps<{ 
+  show: boolean,
+  lands: Land[]
+}>();
 
-defineProps<{ show: boolean }>();
 const emit = defineEmits(['close', 'submit']);
-
+console.log(props.lands);
 
 const newMessage = ref('');
+const selectedLand = ref()
 
 const closeModal = () => {
   emit('close');
 };
 
+const handleSelect = (id : string) => {
+  selectedLand.value = id
+}
+
 const submitForm = () => {
-  if (newMessage.value.trim()) {
-    emit('submit', newMessage.value);
+  if (newMessage.value.trim()) {    
+    const landId = selectedLand.value === 7 ? null : selectedLand.value;
+    emit('submit', { message: newMessage.value, land: landId });
     newMessage.value = '';
   }
 };
@@ -32,6 +42,7 @@ const submitForm = () => {
             placeholder="Enter your message"
             class="border p-2 w-full mb-4"
           />
+          <LandsOptions :lands="props.lands" @select="handleSelect" />
           <div class="flex justify-end">
             <button @click="closeModal" type="button" class="bg-gray-500 text-white py-2 px-4 rounded mr-2">
               Cancel
