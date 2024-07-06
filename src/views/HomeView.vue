@@ -25,27 +25,61 @@ setDataArray()
 // const duse = dataArray.value
 // console.log(duse[0]);
 
-import type { CardArgs } from '@/models/Card'
-const cardData: CardArgs[] = [
+// export type Item ={
+//   id: number,
+//   attributes: {
+//     landName: string,
+//     createAt: string,
+//     updateAt: string,
+//     publishedAt: string,
+//   }
+// }
+
+const cardData: Item[] = [
   {
-    name: 'Sproutbara',
-    image: '/mascot/sproutbara.png'
+    id: 1,
+    attributes: {
+      landName: 'Sproutbara',
+      createAt: '2021-09-01T00:00:00.000Z',
+      updateAt: '2021-09-01T00:00:00.000Z',
+      publishedAt: '2021-09-01T00:00:00.000Z'
+    }
   },
   {
-    name: 'Sunnybara',
-    image: '/mascot/sunnybara.png'
+    id: 2,
+    attributes: {
+      landName: 'Sunnybara',
+      createAt: '2021-09-01T00:00:00.000Z',
+      updateAt: '2021-09-01T00:00:00.000Z',
+      publishedAt: '2021-09-01T00:00:00.000Z'
+    }
   },
   {
-    name: 'Rainybara',
-    image: '/mascot/rainybara.png'
+    id: 3,
+    attributes: {
+      landName: 'Rainybara',
+      createAt: '2021-09-01T00:00:00.000Z',
+      updateAt: '2021-09-01T00:00:00.000Z',
+      publishedAt: '2021-09-01T00:00:00.000Z'
+    }
   },
   {
-    name: 'Russetbara',
-    image: '/mascot/russetbara.png'
+    id: 4,
+    attributes: {
+      landName: 'Russetbara',
+      createAt: '2021-09-01T00:00:00.000Z',
+      updateAt: '2021-09-01T00:00:00.000Z',
+      publishedAt: '2021-09-01T00:00:00.000Z'
+    }
   },
   {
-    name: 'Cozybara',
-    image: '/mascot/cozybara.png'
+    id: 5,
+    attributes: {
+      landName: 'Cozybara',
+      createAt: '2021-09-01T00:00:00.000Z',
+      updateAt: '2021-09-01T00:00:00.000Z',
+      publishedAt: '2021-09-01T00:00:00.000Z'
+    }
   }
 ]
 </script>
@@ -58,6 +92,7 @@ const cardData: CardArgs[] = [
       <h1 class="text-header-desktop">Welcome to Capy Mellow Land</h1>
       <h2 class="text-header-desktop">Where you want to visit?</h2>
     </div>
-    <CardList :cardData="dataArray" />
+    <!-- <CardList :cardData="dataArray" /> -->
+    <CardList :cardData="cardData" />
   </div>
 </template>
