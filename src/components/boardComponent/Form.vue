@@ -9,7 +9,6 @@ const props = defineProps<{
 }>();
 
 const emit = defineEmits(['close', 'submit']);
-console.log(props.lands);
 
 const newMessage = ref('');
 const selectedLand = ref()

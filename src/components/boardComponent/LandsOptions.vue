@@ -8,13 +8,11 @@ const props = defineProps<{
 
 const emit = defineEmits(['select']);
 
-const optionLands = ref<Land[]>([{id:7,name:"Anonymous"}].concat(props.lands))
+const optionLands = ref<Land[]>([{id:7,name:"Capymellow"}].concat(props.lands))
 
-const selectedLandId = ref(optionLands.value[0].id); // Default to the first option
+const selectedLandId = ref(optionLands.value[0].id); 
 
-watch(selectedLandId, (newVal) => {
-  console.log(newVal);
-  
+watch(selectedLandId, (newVal) => {  
   emit('select', newVal);
 });
 </script>
