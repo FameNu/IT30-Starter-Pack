@@ -1,26 +1,26 @@
 <script setup lang="ts">
-const props = defineProps({
-  pathOfImg: String,
-  nameOfImage: {
-    type: String,
-    default: 'รูปภาพ'
-  }
-})
+import { type LocationsParentAttributes } from '@/models/Locations'
+
+defineProps<{
+  location: LocationsParentAttributes
+}>()
 </script>
 
 <template>
-  <div
-    class="flex-col p-4 mx-3 my-2 justify-center bg-orange-300 rounded-md shadow-gray-400 shadow-md hover:z-10 hover:bg-orange-400"
-  >
-    <!-- I need to zoom a bit when user hover, but I can't -->
-    <img :src="props.pathOfImg" :alt="nameOfImage" />
-    <section class="flex-col pl-3">
-      <div class="font-bold mt-4">
-        <slot name="name">Name of location</slot>
-      </div>
-      <div class="font-light text-clip">
-        <slot name="description">Description of location</slot>
-      </div>
-    </section>
-  </div>
+  <a :href="location.attributes.linkMap" target="_blank">
+    <div
+      class="flex-col p-4 mx-3 my-2 justify-center bg-primary rounded-md shadow-gray-400 shadow-md hover:z-10 hover:bg-orange-400"
+    >
+      <!-- I need to zoom a bit when user hover, but I can't -->
+      <img :src="location.attributes.image" :alt="location.attributes.name" />
+      <section class="flex-col pl-3">
+        <div class="font-bold mt-4">
+          {{ location.attributes.name }}
+        </div>
+        <div class="font-light text-clip">
+          {{ location.attributes.desc }}
+        </div>
+      </section>
+    </div>
+  </a>
 </template>
