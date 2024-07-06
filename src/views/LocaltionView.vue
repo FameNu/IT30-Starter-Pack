@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import LocationCard from '@/components/localtionComponent/LocationCard.vue'
+import BackHome from '@/components/actions/BackHome.vue';
 import { type LocationsArgs } from '@/models/Locations'
 
 // Path of the image for testing
@@ -24,20 +25,20 @@ for (let i = 0; i < 7; i++) {
 </script>
 
 <template>
+  <BackHome />
   <div class="grid grid-cols-3 grid-rows-1 gap-4">
     <div class="col-span-2">
       <section id="locations-table" class="grid grid-cols-2 max-w-[60vw]">
         <div v-for="location in locations">
-          <LocationCard :nameOfImage="location.name" :pathOfImg="location.pathToImg" :link="location.link">
-            <template #name>{{ location.name }}</template>
-            <template #description>{{ location.description }}</template>
-          </LocationCard>
+          <LocationCard
+            :location="location"
+          />
         </div>
       </section>
     </div>
     <div class="col-start-3">
       <div class="w-full h-full">
-        <img :src="pathMascot" alt="CAPYBARA" class=" h-1/3 fixed top-1/4" />
+        <img :src="pathMascot" alt="CAPYBARA" class="h-1/3 fixed top-1/4" />
       </div>
     </div>
   </div>
