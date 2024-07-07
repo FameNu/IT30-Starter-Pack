@@ -7,8 +7,10 @@ import { fetchData } from '@/utils/fetchData'
 
 import BackHome from '@/components/actions/BackHome.vue';
 import LocationCard from '@/components/localtionComponent/LocationCard.vue'
+import ModalComponent from '@/components/modalComponents/ModalComponent.vue'
 
 const locations = ref<LocationsParentAttributes[]>([])
+const isModalOpen = ref(false)
 onBeforeMount(async () => {
   console.log('Before Mount')
   const response: ResponseObject = await fetchData('/locations?populate=image')
@@ -34,15 +36,32 @@ for (let i = 0; i < 7; i++) {
   }
   locations.value.push(location)
 }
+
+const showModal = () => {
+  console.log('Show Modal')
+  isModalOpen.value = true
+  console.log('modal open: ', isModalOpen.value)
+}
 </script>
 
 <template>
   <BackHome />
+  <ModalComponent v-if="isModalOpen" @close-modal="isModalOpen = false">
+    <template v-slot:header>
+      <h1>Header</h1>
+    </template>
+    <template v-slot:body>
+      <p>Body</p>
+    </template>
+    <template v-slot:footer>
+      <button @click="isModalOpen = false">Close</button>
+    </template>
+  </ModalComponent>
   <div class="grid grid-cols-3 grid-rows-1 gap-4">
     <div class="col-span-2">
       <section id="locations-table" class="grid grid-cols-2 max-w-[60vw]">
         <div v-for="location in locations">
-          <LocationCard :location="location" />
+          <LocationCard :location="location" @open-modal="showModal" />
         </div>
       </section>
     </div>

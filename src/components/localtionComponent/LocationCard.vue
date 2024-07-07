@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import { type LocationsParentAttributes } from '@/models/Locations'
 
+const emit = defineEmits(['openModal'])
+
 defineProps<{
   location: LocationsParentAttributes
 }>()
 </script>
 
 <template>
-  <a :href="location.attributes.linkMap" target="_blank">
+  <div @click="emit('openModal')" class="cursor-pointer">
     <div
       class="flex-col p-4 mx-3 my-2 justify-center bg-primary rounded-md shadow-gray-400 shadow-md hover:z-10 hover:bg-orange-400"
     >
@@ -22,5 +24,5 @@ defineProps<{
         </div>
       </section>
     </div>
-  </a>
+  </div>
 </template>
