@@ -18,15 +18,18 @@ watch(selectedLandId, (newVal) => {
 </script>
 
 <template>
-    <div>
-        <select v-model="selectedLandId">
-            <option 
-            v-for="{id,name} in optionLands"
-            :key="id"
-            :value="id"
-            >
-            {{ name }}
-            </option>
-        </select>
-    </div>
+  <div class="p-4">
+    <select 
+      v-model="selectedLandId" 
+      class="block w-full p-2 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+    >
+      <option 
+        v-for="{id, name} in optionLands" 
+        :key="id" 
+        :value="id"
+      >
+        {{ name }}
+      </option>
+    </select>
+  </div>
 </template>

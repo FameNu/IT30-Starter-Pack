@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import Form from "@/components/boardComponent/Form.vue";
 import { type Land } from "@/models/Lands";
+import { type MessageObj } from "@/models/Message";
 import { ref, onMounted } from 'vue';
 import { io } from 'socket.io-client';
 
-const BASE_URL = import.meta.env.VITE_BASE_URL
+const BASE_URL = import.meta.env.VITE_APP_BASE_URL
 const socket = io(BASE_URL);
 
-const messages = ref<string[]>([]);
+const messages = ref<MessageObj[]>([]);
 const isModalOpen = ref(false);
 const lands = ref<Land[]>([])
 
@@ -20,10 +21,20 @@ const mapLandData = (data: any[]): Land[] => {
   }));
 };
 
+const mapMessages = (data: any[]): MessageObj[] => {
+  return data.map(item => ({
+    id : item.id,
+    message: item.attributes.message,
+    landName: item.attributes.land.data?.id || null
+  }))
+}
+
 const initMessages = async () => {
-    const response = await fetch(`${BASE_URL}/api/messages`);
+    const response = await fetch(`${BASE_URL}/api/messages?populate=land`);
     const data = await response.json();
-    messages.value = data.data.map((message: { attributes: { message: string; }; }) => message.attributes.message)    
+    messages.value = mapMessages(data.data)   
+    console.log(messages.value);
+    
 } 
 
 const intiLands = async ()=> {
@@ -31,6 +42,8 @@ const intiLands = async ()=> {
     const data = await response.json();
     lands.value = mapLandData(data.data);
     dataLoaded.value = true;
+    console.log(lands.value);
+    
 }
 
 
@@ -41,7 +54,7 @@ onMounted(() => {
   });
 });
 
-const addMessage = async (newMessage: Land) => {
+const addMessage = async (newMessage: {message: string, land : number}) => {
   const newMessageObj = { data: newMessage };
   try {
       const response = await fetch(`${BASE_URL}/api/messages`, {
@@ -53,8 +66,9 @@ const addMessage = async (newMessage: Land) => {
       });
 
       const result = await response.json();
+      const landName = lands.value.find(land => land.id === newMessage.land)?.name || null;
 
-      socket.emit('sendMessages', result.data.attributes.message);
+      socket.emit('sendMessages', {id:result.data.id, message: result.data.attributes.message, landName: landName});
     }catch (error) {
       console.error('Error Add new messages:', error);
     }
@@ -72,7 +86,7 @@ const closeModal = () => {
   isModalOpen.value = false;
 };
 
-const handleModalSubmit = (message: Land) => {
+const handleModalSubmit = (message: {message: string, land : number}) => {
   addMessage(message);
   closeModal();
 };
@@ -84,7 +98,7 @@ const handleModalSubmit = (message: Land) => {
         <button @click="openModal" class="bg-blue-500 text-white py-2 px-4 rounded">Add Message</button>
       </div>
       <div class="space-y-2">
-        <div v-for="(message, index) in messages" :key="index" class="bg-gray-100 p-4 rounded shadow">
+        <div v-for="{message, id} in messages" :key="id" class="bg-gray-100 p-4 rounded shadow">
           {{ message }}
         </div>
       </div>
