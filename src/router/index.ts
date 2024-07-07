@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
-import LocaltionView from '@/views/LocaltionView.vue'
+import LocationView from '@/views/LocationView.vue'
 import SeasonView from '@/views/SeasonView.vue'
 import BoardView from '@/views/BoardView.vue'
 
@@ -15,7 +15,7 @@ const router = createRouter({
     {
       path: '/locations',
       name: 'locations',
-      component: LocaltionView
+      component: LocationView
     },
     {
       path: '/:seasons',

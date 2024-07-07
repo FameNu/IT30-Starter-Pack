@@ -5,12 +5,10 @@ import { type LocationsParentAttributes } from '@/models/Locations'
 import type { ResponseObject } from '@/models/ResponseObject'
 import { fetchData } from '@/utils/fetchData'
 
-import BackHome from '@/components/actions/BackHome.vue';
-import LocationCard from '@/components/localtionComponent/LocationCard.vue'
-import ModalComponent from '@/components/modalComponents/ModalComponent.vue'
+import BackHome from '@/components/actions/BackHome.vue'
+import LocationCard from '@/components/locationComponent/LocationCard.vue'
 
 const locations = ref<LocationsParentAttributes[]>([])
-const isModalOpen = ref(false)
 onBeforeMount(async () => {
   console.log('Before Mount')
   const response: ResponseObject = await fetchData('/locations?populate=image')
@@ -36,36 +34,25 @@ for (let i = 0; i < 7; i++) {
   }
   locations.value.push(location)
 }
-
-const showModal = () => {
-  console.log('Show Modal')
-  isModalOpen.value = true
-  console.log('modal open: ', isModalOpen.value)
-}
 </script>
 
 <template>
-  <BackHome />
-  <ModalComponent v-if="isModalOpen" @close-modal="isModalOpen = false">
-    <template v-slot:header>
-      <h1>Header</h1>
-    </template>
-    <template v-slot:body>
-      <p>Body</p>
-    </template>
-    <template v-slot:footer>
-      <button @click="isModalOpen = false">Close</button>
-    </template>
-  </ModalComponent>
-  <div class="grid grid-cols-3 grid-rows-1 gap-4">
-    <div class="col-span-2">
-      <section id="locations-table" class="grid grid-cols-2 max-w-[60vw]">
-        <div v-for="location in locations">
-          <LocationCard :location="location" @open-modal="showModal" />
-        </div>
+  <div class="hidden md:block mx-3 my-4">
+    <BackHome />
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="block md:hidden w-full">
+      <img :src="pathMascot" alt="CAPYBARA" class="w-full" />
+    </div>
+    <div class="col-span-1 md:col-span-2">
+      <section
+        id="locations-table"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 max-w-full md:max-w-[60vw]"
+      >
+        <LocationCard v-for="location in locations" :location="location" />
       </section>
     </div>
-    <div class="col-start-3">
+    <div class="hidden md:block col-span-1 md:col-start-3">
       <div class="w-full h-full">
         <img :src="pathMascot" alt="CAPYBARA" class="h-1/3 fixed top-1/4" />
       </div>
