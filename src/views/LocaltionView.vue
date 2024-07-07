@@ -6,7 +6,7 @@ import type { ResponseObject } from '@/models/ResponseObject'
 import { fetchData } from '@/utils/fetchData'
 
 import BackHome from '@/components/actions/BackHome.vue';
-import LocationCard from '@/components/localtionComponent/LocationCard.vue'
+import LocationCard from '@/components/locationComponent/LocationCard.vue'
 
 const locations = ref<LocationsParentAttributes[]>([])
 onBeforeMount(async () => {
