@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Form from "@/components/boardComponent/Form.vue";
+import CardMessage from "@/components/boardComponent/CardMessage.vue";
 import { type Land } from "@/models/Lands";
 import { type MessageObj } from "@/models/Message";
 import { ref, onMounted } from 'vue';
@@ -93,17 +94,26 @@ const handleModalSubmit = (message: {message: string, land : number}) => {
 </script>
 
 <template>
-    <div class="p-4">
-      <div class="mb-4">
+     <div class="p-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="mb-4 col-span-1 lg:col-span-3 flex justify-start">
         <button @click="openModal" class="bg-blue-500 text-white py-2 px-4 rounded">Add Message</button>
       </div>
-      <div class="space-y-2">
-        <div v-for="{message, id} in messages" :key="id" class="bg-gray-100 p-4 rounded shadow">
-          {{ message }}
-        </div>
-      </div>
-      <Form v-if="dataLoaded && isModalOpen" :show="isModalOpen" :lands="lands" @close="closeModal" @submit="handleModalSubmit" />
+      <CardMessage 
+        v-for="message in messages" 
+        :key="message.id" 
+        :messageObj="message"
+        class="col-span-1"
+      />
     </div>
+    <Form 
+      v-if="dataLoaded && isModalOpen" 
+      :show="isModalOpen" 
+      :lands="lands" 
+      @close="closeModal" 
+      @submit="handleModalSubmit" 
+    />
+  </div>
   </template>
 
 <style scoped></style>

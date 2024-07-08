@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import {type MessageObj } from '@/models/Message';
-
-const props = defineProps<{ 
-  message: MessageObj
+import getBgClass from '@/utils/className';
+defineProps<{ 
+  messageObj: MessageObj
 }>();
 </script>
 
 <template>
-
+  <div :class="getBgClass(messageObj.landName) === ''? 'bg-gray-100':getBgClass(messageObj.landName)" class="text-balance font-bold p-4 rounded shadow break-words">
+    <p class="text-gray-700 overflow-hidden overflow-ellipsis">{{ messageObj.message }}</p>
+  </div>
 </template>
