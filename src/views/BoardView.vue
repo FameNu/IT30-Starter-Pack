@@ -25,7 +25,7 @@ const mapMessages = (data: any[]): MessageObj[] => {
   return data.map(item => ({
     id : item.id,
     message: item.attributes.message,
-    landName: item.attributes.land.data?.id || null
+    landName: item.attributes.land.data?.attributes.landName || null
   }))
 }
 
