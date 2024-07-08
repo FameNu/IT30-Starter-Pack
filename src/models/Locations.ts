@@ -1,13 +1,15 @@
 interface LocationsParentAttributes {
+  id: number, // using as key
   attributes: LocationsAttributes,
 }
 
 interface LocationsAttributes {
   name: string,
-  desc: string,
+  description: string,
+  locationDescription: string | null,
   linkMap: string,
-  typeOfLocation: string,
-  image: any,
+  typeOfLocation: string[], // in case it is not array of id
+  image: string, // in case it is path to image
 }
 
 export { type LocationsParentAttributes, type LocationsAttributes }
