@@ -18,7 +18,7 @@ watch(selectedLandId, (newVal) => {
 </script>
 
 <template>
-  <div class="p-4">
+  <div class="p-2">
     <select 
       v-model="selectedLandId" 
       class="block w-full p-2 border border-gray-300 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
