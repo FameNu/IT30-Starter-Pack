@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onBeforeMount, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
 import { type LocationsParentAttributes } from '@/models/Locations'
 import type { ResponseObject } from '@/models/ResponseObject'
@@ -8,35 +8,23 @@ import { fetchData } from '@/utils/fetchData'
 import BackHome from '@/components/actions/BackHome.vue'
 import LocationCard from '@/components/locationComponent/LocationCard.vue'
 
-const locations = ref<LocationsParentAttributes[]>([])
-onBeforeMount(async () => {
-  console.log('Before Mount')
-  const response: ResponseObject = await fetchData('/locations?populate=image')
-  Object.assign(locations.value, response.data as LocationsParentAttributes[])
-})
+import bistroMetaData from '@/temp/bistro_metadata.json'
 
-// Path of the image for testing
-const GGDriveShowImage: string = import.meta.env.VITE_GD_IMAGE as string
-const ImageID: string = '1IdXgY5i5zw96aAyr8z2GjSKbwxaD04tX'
-const pathOfImgTest: string = GGDriveShowImage + ImageID
+const locations = ref<LocationsParentAttributes[]>([])
 const pathMascot: string = '/mainMascotAction/Mascot-Action-5.png'
 
-// Create a dummy data for testing
-for (let i = 0; i < 7; i++) {
-  const location: LocationsParentAttributes = {
-    attributes: {
-      image: pathOfImgTest,
-      name: `testing img + ${i}`,
-      desc: 'this is an description of ' + i,
-      typeOfLocation: 'testing',
-      linkMap: 'https://maps.app.goo.gl/CuXv2zGn8Vjwyryu6'
-    }
+onMounted(async () => {
+  if (import.meta.env.VITE_DEV_MODE) {
+    Object.assign(locations.value, bistroMetaData as LocationsParentAttributes[])
+  } else {
+    const response: ResponseObject = await fetchData(import.meta.env.VITE_APP_BASE_URL)
+    Object.assign(locations.value, response.data as LocationsParentAttributes[])
   }
-  locations.value.push(location)
-}
+})
 </script>
 
 <template>
+  <div class="-z-[9] inset-0 w-full min-h-screen fixed bg-black bg-opacity-15"></div>
   <div class="hidden md:block mx-3 my-4">
     <BackHome />
   </div>
@@ -49,7 +37,11 @@ for (let i = 0; i < 7; i++) {
         id="locations-table"
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 max-w-full md:max-w-[60vw]"
       >
-        <LocationCard v-for="location in locations" :location="location" />
+        <LocationCard
+          v-for="(location, index) in locations"
+          :key="location.id"
+          :location="location"
+        />
       </section>
     </div>
     <div class="hidden md:block col-span-1 md:col-start-3">
