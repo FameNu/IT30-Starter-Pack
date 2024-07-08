@@ -38,7 +38,7 @@ onMounted(async () => {
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 max-w-full md:max-w-[60vw]"
       >
         <LocationCard
-          v-for="(location, index) in locations"
+          v-for="location in locations"
           :key="location.id"
           :location="location"
         />
