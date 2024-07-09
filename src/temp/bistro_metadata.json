@@ -1,57 +1,165 @@
-[
-  {
-    "id": 1,
-    "attributes": {
-      "name": "ลุงหนุ่ม",
-      "description": "ขายเครื่องดื่มที่มีวิปครีมป็นหลัก พร้อม ๆ กับของหวานต่าง ๆ เช่น คุกกี้",
-      "locationDescription": null,
-      "linkMap": "https://maps.app.goo.gl/CuXv2zGn8Vjwyryu6",
-      "typeOfLocation": ["ของหวาน", "เครื่องดื่ม"],
-      "image": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/IMG_7656-e1688463914662-840x630.jpg"
+{
+  "data": [
+    {
+      "id": 1,
+      "attributes": {
+        "name": "ลุงหนุ่ม",
+        "description": "ขายเครื่องดื่มที่มีวิปครีมป็นหลัก พร้อม ๆ กับของหวานต่าง ๆ เช่น คุกกี้",
+        "locationDescription": null,
+        "linkMap": "https://maps.app.goo.gl/CuXv2zGn8Vjwyryu6",
+        "categories": {
+          "data": [
+            {
+              "attributes": {
+                "name": "ของหวาน"
+              }
+            },
+            {
+              "attributes": {
+                "name": "เครื่องดื่ม"
+              }
+            }
+          ]
+        },
+        "image": {
+          "data": {
+            "attributes": {
+              "url": "https://bpuu.kmutt.ac.th/wp-content/uploads/2019/07/IMG_7656-e1688463914662-840x630.jpg"
+            }
+          }
+        }
+      }
+    },
+
+    {
+      "id": 2,
+      "attributes": {
+        "name": "ชิกกี้",
+        "description": "ขายอาหารจานเดียวเป็นหลัก มีเฟรนฟราย ของทอดต่าง ๆ",
+        "locationDescription": null,
+        "linkMap": "https://maps.app.goo.gl/v78nLwwwqo9jC5rE7",
+        "categories": {
+          "data": [
+            {
+              "attributes": {
+                "name": "อาหารจานเดียว"
+              }
+            },
+            {
+              "attributes": {
+                "name": "อาหารตามสั่ง"
+              }
+            }
+          ]
+        },
+        "image": {
+          "data": {
+            "attributes": {
+              "url": "https://lh5.googleusercontent.com/p/AF1QipMxTvsCYB8UnnwijrHhB-nQ4W8diTIZunqElHZv=w408-h306-k-no"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 3,
+      "attributes": {
+        "name": "ข้าวต้มสวนธน (ครัวกุ๊กกุ่ยโภชนา)",
+        "description": "เป็นร้านข้าวต้มกุ่ยขายกับข้าว เช่น ผัดผุกบุ้ง ไข่เจียว",
+        "locationDescription": null,
+        "linkMap": "https://maps.app.goo.gl/VRVq1Zt8ca62c7KX9",
+        "categories": {
+          "data": [
+            {
+              "attributes": {
+                "name": "อาหารจานเดียว"
+              }
+            },
+            {
+              "attributes": {
+                "name": "อาหารตามสั่ง"
+              }
+            }
+          ]
+        },
+        "image": {
+          "data": {
+            "attributes": {
+              "url": "https://lh5.googleusercontent.com/p/AF1QipOw9-gQ7hBMrsSyt9pyIA7MejQJBzN90jvPvn7Y=w408-h725-k-no"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 4,
+      "attributes": {
+        "name": "ลานปูน",
+        "description": "ศูนย์อาหาร หน้ามอ มีหลายร้านอาหารหลายสไตล์ให้เลือกมากมาย",
+        "locationDescription": null,
+        "linkMap": "https://maps.app.goo.gl/deUjNjFDyL4ZPKaJ7",
+        "categories": {
+          "data": [
+            {
+              "attributes": {
+                "name": "อาหารจานเดียว"
+              }
+            },
+            {
+              "attributes": {
+                "name": "อาหารตามสั่ง"
+              }
+            },
+            {
+              "attributes": {
+                "name": "ของหวาน"
+              }
+            },
+            {
+              "attributes": {
+                "name": "เครื่องดื่ม"
+              }
+            }
+          ]
+        },
+        "image": {
+          "data": {
+            "attributes": {
+              "url": "https://lh3.ggpht.com/p/AF1QipPesKoZ0SkJUlB0qHNn11K0ktTxmzzkdT3WKTcb=s1536"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 5,
+      "attributes": {
+        "name": "Mixue สาขาบางมด",
+        "description": "ร้านไอศกรีม เจ้าเด่นเจ้าดัง",
+        "locationDescription": "อยู่ด้านในของลานปูน",
+        "linkMap": "https://maps.app.goo.gl/KoWRZCjwBsafCo1H9",
+        "categories": {
+          "data": [
+            {
+              "attributes": {
+                "name": "ของหวาน"
+              }
+            },
+            {
+              "attributes": {
+                "name": "เครื่องดื่ม"
+              }
+            }
+          ]
+        },
+        "image": {
+          "data": {
+            "attributes": {
+              "url": "https://lh5.googleusercontent.com/p/AF1QipMIaDQUxAvs8X_jTNPheLsrpkRBKr5Ro8iFD5wK=w408-h306-k-no"
+            }
+          }
+        }
+      }
     }
-  },
-  {
-    "id": 2,
-    "attributes": {
-      "name": "ชิกกี้",
-      "description": "ขายอาหารจานเดียวเป็นหลัก มีเฟรนฟราย ของทอดต่าง ๆ",
-      "locationDescription": null,
-      "linkMap": "https://maps.app.goo.gl/v78nLwwwqo9jC5rE7",
-      "typeOfLocation": ["อาหารจานเดียว", "อาหารตามสั่ง"],
-      "image": "https://lh5.googleusercontent.com/p/AF1QipMxTvsCYB8UnnwijrHhB-nQ4W8diTIZunqElHZv=w408-h306-k-no"
-    }
-  },
-  {
-    "id": 3,
-    "attributes": {
-      "name": "ข้าวต้มสวนธน (ครัวกุ๊กกุ่ยโภชนา)",
-      "description": "เป็นร้านข้าวต้มกุ่ยขายกับข้าว เช่น ผัดผุกบุ้ง ไข่เจียว",
-      "locationDescription": null,
-      "linkMap": "https://maps.app.goo.gl/VRVq1Zt8ca62c7KX9",
-      "typeOfLocation": ["อาหารจานเดียว", "อาหารตามสั่ง"],
-      "image": "https://lh5.googleusercontent.com/p/AF1QipOw9-gQ7hBMrsSyt9pyIA7MejQJBzN90jvPvn7Y=w408-h725-k-no"
-    }
-  },
-  {
-    "id": 4,
-    "attributes": {
-      "name": "ลานปูน",
-      "description": "ศูนย์อาหาร หน้ามอ มีหลายร้านอาหารหลายสไตล์ให้เลือกมากมาย",
-      "locationDescription": null,
-      "linkMap": "https://maps.app.goo.gl/deUjNjFDyL4ZPKaJ7",
-      "typeOfLocation": ["อาหารจานเดียว", "อาหารตามสั่ง", "ของหวาน", "เครื่องดื่ม"],
-      "image": "https://lh3.ggpht.com/p/AF1QipPesKoZ0SkJUlB0qHNn11K0ktTxmzzkdT3WKTcb=s1536"
-    }
-  },
-  {
-    "id": 5,
-    "attributes": {
-      "name": "Mixue สาขาบางมด",
-      "description": "ร้านไอศกรีม เจ้าเด่นเจ้าดัง",
-      "locationDescription": "อยู่ด้านในของลานปูน",
-      "linkMap": "https://maps.app.goo.gl/KoWRZCjwBsafCo1H9",
-      "typeOfLocation": ["ของหวาน", "เครื่องดื่ม"],
-      "image": "https://lh5.googleusercontent.com/p/AF1QipMIaDQUxAvs8X_jTNPheLsrpkRBKr5Ro8iFD5wK=w408-h306-k-no"
-    }
-  }
-]
+  ]
+}

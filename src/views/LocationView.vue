@@ -2,7 +2,6 @@
 import { onMounted, ref } from 'vue'
 
 import { type LocationsParentAttributes } from '@/models/Locations'
-import type { ResponseObject } from '@/models/ResponseObject'
 import { fetchData } from '@/utils/fetchData'
 
 import BackHome from '@/components/actions/BackHome.vue'
@@ -14,11 +13,13 @@ const locations = ref<LocationsParentAttributes[]>([])
 const pathMascot: string = '/mainMascotAction/Mascot-Action-5.png'
 
 onMounted(async () => {
-  if (import.meta.env.VITE_DEV_MODE) {
-    Object.assign(locations.value, bistroMetaData as LocationsParentAttributes[])
+  if (import.meta.env.VITE_DEV_MODE === 'true') {
+    Object.assign(locations.value, bistroMetaData.data)
   } else {
-    const response: ResponseObject = await fetchData(import.meta.env.VITE_APP_BASE_URL)
-    Object.assign(locations.value, response.data as LocationsParentAttributes[])
+    const response = await fetchData(
+      `${import.meta.env.VITE_APP_BASE_URL}/api/locations?populate=image%2Ccategories&sort=typeOfLocation%3Adesc`
+    )
+    Object.assign(locations.value, response.data)
   }
 })
 </script>
@@ -37,11 +38,7 @@ onMounted(async () => {
         id="locations-table"
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 max-w-full md:max-w-[60vw]"
       >
-        <LocationCard
-          v-for="location in locations"
-          :key="location.id"
-          :location="location"
-        />
+        <LocationCard v-for="location in locations" :key="location.id" :location="location" />
       </section>
     </div>
     <div class="hidden md:block col-span-1 md:col-start-3">

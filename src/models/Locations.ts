@@ -8,8 +8,27 @@ interface LocationsAttributes {
   description: string,
   locationDescription: string | null,
   linkMap: string,
-  typeOfLocation: string[], // in case it is not array of id
-  image: string, // in case it is path to image
+  typeOfLocation: string
+  image: ImageLocationsAttributes,
+  categories: CategoriesAttributes,
 }
 
-export { type LocationsParentAttributes, type LocationsAttributes }
+interface ImageLocationsAttributes {
+  data: {
+    attributes: {
+      url: string,
+    }
+  }
+}
+
+interface CategoriesAttributes {
+  data: {
+    attributes: {
+      name: string
+    }
+  }[]
+}
+
+
+
+export { type LocationsParentAttributes, type ImageLocationsAttributes }

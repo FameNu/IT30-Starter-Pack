@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { type LocationsParentAttributes } from '@/models/Locations'
 import LocationDot from '@/components/icons/LocationDot.vue'
+import { getImageUrlFromServer } from '@/utils/imageUtil'
 
 defineProps<{
   location: LocationsParentAttributes
@@ -13,6 +14,8 @@ const classOfCategoryMapper = new Map([
   ['บุฟเฟ่ต์', 'buffet'],
   ['อาหารตามสั่ง', 'cooked-to-order']
 ])
+
+const DEV_MODE = import.meta.env.VITE_DEV_MODE === 'true'
 </script>
 
 <template>
@@ -26,7 +29,11 @@ const classOfCategoryMapper = new Map([
         <a :href="location.attributes.linkMap" target="_blank">
           <img
             class="w-full rounded-md transform transition-transform duration-300 group-hover:scale-110 object-cover"
-            :src="location.attributes.image"
+            :src="
+              DEV_MODE
+                ? location.attributes.image.data.attributes.url
+                : getImageUrlFromServer(location.attributes.image)
+            "
             :alt="location.attributes.name"
           />
           <div
@@ -42,10 +49,10 @@ const classOfCategoryMapper = new Map([
       <p class="mb-4">{{ location.attributes.description }}</p>
       <div class="flex flex-wrap mb-4">
         <span
-          v-for="type in location.attributes.typeOfLocation"
-          :class="`${classOfCategoryMapper.get(type)}`"
+          v-for="category in location.attributes.categories.data"
+          :class="`${classOfCategoryMapper.get(category.attributes.name)}`"
           class="text-black inline-block rounded-md shadow-md px-3 py-1 text-sm mr-2 mb-2"
-          >{{ type }}</span
+          >{{ category.attributes.name }}</span
         >
       </div>
       <div v-if="location.attributes.locationDescription" class="flex gap-2">
