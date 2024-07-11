@@ -32,11 +32,11 @@ const mapMessages = (data: any[]): MessageObj[] => {
 }
 
 const initMessages = async () => {
-    const response = await fetchData('/api/blogs?populate=land');
+    const response = await fetchData('/api/blogs?populate=land,comments');
     messages.value = mapMessages(response.data)   
 } 
 
-const intiLands = async ()=> {
+const intiLands = async () => {
     const response = await fetchData('/api/lands');
     lands.value = mapLandData(response.data);
     dataLoaded.value = true;
