@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Form from "@/components/boardComponent/Form.vue";
 import CardMessage from "@/components/boardComponent/CardMessage.vue";
+import { fetchData } from "@/utils/fetchData";
 import { type Land } from "@/models/Lands";
 import { type MessageObj } from "@/models/Message";
 import { ref, onMounted } from 'vue';
@@ -31,17 +32,13 @@ const mapMessages = (data: any[]): MessageObj[] => {
 }
 
 const initMessages = async () => {
-    const response = await fetch(`${BASE_URL}/api/messages?populate=land`);
-    const data = await response.json();
-    messages.value = mapMessages(data.data)   
-    console.log(messages.value);
-    
+    const response = await fetchData('/api/blogs?populate=land');
+    messages.value = mapMessages(response.data)   
 } 
 
 const intiLands = async ()=> {
-    const response = await fetch(`${BASE_URL}/api/lands`);
-    const data = await response.json();
-    lands.value = mapLandData(data.data);
+    const response = await fetchData('/api/lands');
+    lands.value = mapLandData(response.data);
     dataLoaded.value = true;
     console.log(lands.value);
     
@@ -58,7 +55,7 @@ onMounted(() => {
 const addMessage = async (newMessage: {message: string, land : number}) => {
   const newMessageObj = { data: newMessage };
   try {
-      const response = await fetch(`${BASE_URL}/api/messages`, {
+      const response = await fetch(`${BASE_URL}/api/blogs`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
