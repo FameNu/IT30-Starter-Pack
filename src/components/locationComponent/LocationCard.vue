@@ -12,7 +12,9 @@ const classOfCategoryMapper = new Map([
   ['เครื่องดื่ม', 'drinks'],
   ['อาหารจานเดียว', 'cuisine'],
   ['บุฟเฟ่ต์', 'buffet'],
-  ['อาหารตามสั่ง', 'cooked-to-order']
+  ['อาหารตามสั่ง', 'cooked-to-order'],
+  ['ปิ้งย่าง', 'yakiniku'],
+  ['ชาบู', 'shabu']
 ])
 
 const DEV_MODE = import.meta.env.VITE_DEV_MODE === 'true'
@@ -73,8 +75,16 @@ const DEV_MODE = import.meta.env.VITE_DEV_MODE === 'true'
 .cuisine {
   background-color: #b2e8ff;
 }
-.buffet,
+.buffet {
+  background-color: #edceff;
+}
 .cooked-to-order {
   background-color: #ffcece;
+}
+.yakiniku {
+  background-color: #ffa1a1;
+}
+.shabu {
+  background-color: #ffceef;
 }
 </style>
