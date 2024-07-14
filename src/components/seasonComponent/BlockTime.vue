@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import leftArrow from "../icons/leftArrow.vue";
 import axios from "axios";
 </script>
