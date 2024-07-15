@@ -9,8 +9,9 @@
   * {
     @apply text-base-main;
   }
+
   .text-header-desktop {
-    @apply text-lg md:text-xl font-bold w-fit font-caprasimo;
+    @apply text-lg md:text-xl font-normal w-fit font-caprasimo;
   }
 
   .mascot,
@@ -42,12 +43,12 @@
   /* Reponssive */
   /* Desktop Size */
   .list-desktop {
-    @apply grid grid-cols-5 grid-rows-1 gap-8;
+    @apply flex flex-wrap max-w-2xl gap-x-16 justify-center items-center;
   }
 
   /* Ipad Size */
   .list-medium-screen {
-    @apply grid grid-cols-3 grid-rows-2 gap-8;
+    @apply flex flex-wrap max-w-2xl gap-8 justify-center items-center;
   }
 
   .list-medium-screen .card-container:nth-child(2) {
