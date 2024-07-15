@@ -41,7 +41,8 @@ const initComments = async () => {
 
 onMounted(() => {
   socket.on('connect', () => {
-    initComments();   
+    initComments();
+    socket.emit('joinRoom', route.params.bid)   
     });
 })
 
@@ -61,15 +62,17 @@ const addNewComment = async (replyComment : string) => {
       });
 
       const result = await response.json();
-      socket.emit('sendComments',{ id: result.data.id, comment: result.data.attributes.comment })
+      socket.emit('sendComments',{ id: result.data.id, comment: result.data.attributes.comment, topic: newCommentObj.data.topic })
     }catch (error) {
       console.error('Error Add new comment:', error);
     }
 };
 
 const submitComment = (replyComment: string) => {
+  if (replyComment.trim()) {
     addNewComment(replyComment);
-    newComment.value = '';
+  }
+  newComment.value = '';
 }
 </script>
 
