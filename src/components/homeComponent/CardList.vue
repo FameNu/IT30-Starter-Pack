@@ -10,10 +10,10 @@ import Card from '@/components/homeComponent/Card.vue'
 //   cardData: Item[]
 // }>()
 
-const kuy = defineProps<{
+const items = defineProps<{
   cardData: Item[]
 }>()
-console.log(kuy.cardData);
+console.log(items.cardData);
 
 
 const capybaraStore = useCapybaraStore()
