@@ -26,6 +26,11 @@ const router = createRouter({
       path: '/boards',
       name: 'boards',
       component: BoardView
+    },
+    {
+      path: '/:catchAll(.*)',
+      name: 'not-found',
+      component: HomeView
     }
   ]
 })
