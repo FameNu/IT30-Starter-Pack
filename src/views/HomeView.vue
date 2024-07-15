@@ -85,7 +85,7 @@ const cardData: Item[] = [
 </script>
 
 <template>
-  <div class="h-full flex flex-col lg:justify-center items-center gap-16">
+  <div class="h-full flex flex-col lg:justify-center items-center">
     <div
       class="bg-primary w-fit py-4 px-6 mt-2 mx-auto rounded-xl flex flex-col items-center shadow-xl"
     >
@@ -93,6 +93,6 @@ const cardData: Item[] = [
       <h2 class="text-header-desktop">Where you want to visit?</h2>
     </div>
     <!-- <CardList :cardData="dataArray" /> -->
-    <CardList :cardData="cardData" />
+    <CardList :cardData="cardData" class="pt-8"/>
   </div>
 </template>
