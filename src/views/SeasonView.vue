@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import StudyTable from '@/components/seasonComponent/BlockTime.vue'
 import { useRoute } from 'vue-router'
 

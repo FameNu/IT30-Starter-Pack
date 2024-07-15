@@ -3,6 +3,7 @@ import HomeView from '@/views/HomeView.vue'
 import LocaltionView from '@/views/LocaltionView.vue'
 import SeasonView from '@/views/SeasonView.vue'
 import BoardView from '@/views/BoardView.vue'
+import CommentView from '@/views/CommentView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +27,11 @@ const router = createRouter({
       path: '/boards',
       name: 'boards',
       component: BoardView
+    },
+    {
+      path: '/boards/:bid',
+      name: 'board-comment',
+      component: CommentView
     },
     {
       path: '/:catchAll(.*)',
