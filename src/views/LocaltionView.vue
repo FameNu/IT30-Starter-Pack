@@ -5,7 +5,7 @@ import { type LocationsParentAttributes } from '@/models/Locations'
 import type { ResponseObject } from '@/models/ResponseObject'
 import { fetchData } from '@/utils/fetchData'
 
-import BackHome from '@/components/actions/BackHome.vue';
+import BackHome from '@/components/actions/BackHome.vue'
 import LocationCard from '@/components/localtionComponent/LocationCard.vue'
 
 const locations = ref<LocationsParentAttributes[]>([])

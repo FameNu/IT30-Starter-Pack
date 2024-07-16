@@ -25,7 +25,7 @@ const swapOpenClose = () => {
     <!-- close icon -->
     <XMarkIcon class="swap-off" />
 
-    <div class="-z-30" >
+    <div class="-z-30">
       <RouterLink
         to="/locations"
         @click="swapOpenClose"

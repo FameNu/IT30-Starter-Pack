@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { type Item } from '@/models/Card'
-import getBgClass from '@/utils/className';
+import getBgClass from '@/utils/className'
 defineProps({
   name: String,
   image: String,
@@ -8,7 +8,7 @@ defineProps({
   hovering: Boolean
 })
 
-defineEmits(["onHover", "onLeave", "cardClick"]);
+defineEmits(['onHover', 'onLeave', 'cardClick'])
 </script>
 
 <template>

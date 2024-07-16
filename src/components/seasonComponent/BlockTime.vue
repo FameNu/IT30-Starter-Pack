@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import leftArrow from "../icons/leftArrow.vue";
-import axios from "axios";
+import leftArrow from '../icons/leftArrow.vue'
+import axios from 'axios'
 
 const paint = defineProps({
   color: {
@@ -10,7 +10,7 @@ const paint = defineProps({
   }
 })
 
-const checkinBGColor = (houseName: string, sec=false) => {
+const checkinBGColor = (houseName: string, sec = false) => {
   if (sec) {
     switch (houseName) {
       case 'sproutbara':
@@ -43,13 +43,12 @@ const checkinBGColor = (houseName: string, sec=false) => {
     }
   }
 }
-
 </script>
 
 <template>
   <div :class="checkinBGColor(color, true)">
     <div class="flex justify-between px-20">
-      <leftArrow/>
+      <leftArrow />
       <h1 class="text-xl font-bold">24 JUNE 2024</h1>
       <leftArrow class="rotate-180" />
     </div>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import router from '@/router';
+import router from '@/router'
 import { type Item } from '@/models/Card'
 import { useCapybaraStore } from '@/store/global'
 import Card from '@/components/homeComponent/Card.vue'
@@ -13,8 +13,7 @@ import Card from '@/components/homeComponent/Card.vue'
 const items = defineProps<{
   cardData: Item[]
 }>()
-console.log(items.cardData);
-
+console.log(items.cardData)
 
 const capybaraStore = useCapybaraStore()
 const hoverCardIndex = ref<number | null>(null)
@@ -30,12 +29,11 @@ const handleMouseLeave = () => {
   hovering.value = false
 }
 
-const handleCardClick = (name : string) => {
-  console.log(name);
-  capybaraStore.setCapybaraName(name);
-  router.push({ name: 'seasons', params: { seasons: `${name}` } });
-
-};
+const handleCardClick = (name: string) => {
+  console.log(name)
+  capybaraStore.setCapybaraName(name)
+  router.push({ name: 'seasons', params: { seasons: `${name}` } })
+}
 </script>
 
 <template>

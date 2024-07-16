@@ -1,4 +1,4 @@
-import { defineStore, getActivePinia } from 'pinia'
+import { defineStore } from 'pinia'
 import axios from 'axios'
 
 export const useCapybaraStore = defineStore('capybara', {
