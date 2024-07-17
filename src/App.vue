@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import SITAndStarter from '@/components/ourBrand/SITAndStarter.vue'
-import HamburgerMenu from '@/components/social/HamburgerMenu.vue';
+import HamburgerMenu from '@/components/social/HamburgerMenu.vue'
 </script>
 
 <template>
@@ -21,3 +21,5 @@ import HamburgerMenu from '@/components/social/HamburgerMenu.vue';
     <HamburgerMenu />
   </footer>
 </template>
+
+* { transition: all 0.3s; }
