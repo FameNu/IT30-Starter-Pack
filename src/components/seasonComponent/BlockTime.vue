@@ -12,7 +12,7 @@ import axios from "axios";
     </div>
     <div class="pt-5">
       <div class="pl-3 font-bold">9.30 - 12.30</div>
-      <div class="bg-white flex pr-40 p-2 px-3 rounded-xl">
+      <div class="bg-white flex p-2 px-3 rounded-xl">
         <div class="bg-purple-500 rounded-xl p-8"></div>
         <div class="font-bold pl-3">
           <h1 class="text-xl">IT Fundamental</h1>
