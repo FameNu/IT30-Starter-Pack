@@ -67,7 +67,9 @@ const locationsTableClass = computed(() =>
         </section>
       </div>
       <div v-if="!isMobile">
-        <div class="fixed inset-y-0 right-0 flex items-center justify-center lg:mr-[20vw] md:mr-[4vw]">
+        <div
+          class="fixed inset-y-0 right-0 flex items-center justify-center xl:mr-[12vw] lg:mr-[20vw] md:mr-[4vw] "
+        >
           <div class="w-fit h-fit flex items-center justify-center">
             <img
               :src="pathMascot"
