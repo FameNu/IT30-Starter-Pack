@@ -5,10 +5,9 @@ import { type Land } from '@/models/Card'
 import { useCapybaraStore } from '@/store/global'
 import Card from '@/components/homeComponent/Card.vue'
 
-const items = defineProps<{
+defineProps<{
   cardData: Land[]
 }>()
-console.log(items.cardData)
 
 const capybaraStore = useCapybaraStore()
 const hoverCardIndex = ref<number | null>(null)
@@ -24,11 +23,11 @@ const handleMouseLeave = () => {
   hovering.value = false
 }
 
-const handleCardClick = (name: string) => {
-  console.log(name)
-  capybaraStore.setCapybaraName(name)
-  router.push({ name: 'seasons', params: { seasons: `${name}` } })
-}
+// const handleCardClick = (name: string) => {
+//   console.log(name)
+//   capybaraStore.setCapybaraName(name)
+//   router.push({ name: 'seasons', params: { seasons: `${name}` } })
+// }
 const handleCardClick = (name: string) => {
   console.log(name)
   capybaraStore.setCapybaraName(name)

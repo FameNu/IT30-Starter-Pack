@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import CardList from '@/components/homeComponent/CardList.vue'
 import axios from 'axios'
-import { type Item } from '@/models/Card'
+import { type Land } from '@/models/Card'
 import { ref } from 'vue'
 
-const dataArray = ref<Item[]>([])
+const dataArray = ref<Land[]>([])
 
 const setDataArray = async () => {
   const response = await axios.get('http://it30starterpack.sit.kmutt.ac.th:1337/api/lands')
-  const items: Item[] = response.data.data
+  const items: Land[] = response.data.data
   dataArray.value = items
   console.log(dataArray.value[0].attributes.landName)
 }
@@ -35,53 +35,53 @@ setDataArray()
 //   }
 // }
 
-const cardData: Item[] = [
-  {
-    id: 1,
-    attributes: {
-      landName: 'Sproutbara',
-      createAt: '2021-09-01T00:00:00.000Z',
-      updateAt: '2021-09-01T00:00:00.000Z',
-      publishedAt: '2021-09-01T00:00:00.000Z'
-    }
-  },
-  {
-    id: 2,
-    attributes: {
-      landName: 'Sunnybara',
-      createAt: '2021-09-01T00:00:00.000Z',
-      updateAt: '2021-09-01T00:00:00.000Z',
-      publishedAt: '2021-09-01T00:00:00.000Z'
-    }
-  },
-  {
-    id: 3,
-    attributes: {
-      landName: 'Rainybara',
-      createAt: '2021-09-01T00:00:00.000Z',
-      updateAt: '2021-09-01T00:00:00.000Z',
-      publishedAt: '2021-09-01T00:00:00.000Z'
-    }
-  },
-  {
-    id: 4,
-    attributes: {
-      landName: 'Russetbara',
-      createAt: '2021-09-01T00:00:00.000Z',
-      updateAt: '2021-09-01T00:00:00.000Z',
-      publishedAt: '2021-09-01T00:00:00.000Z'
-    }
-  },
-  {
-    id: 5,
-    attributes: {
-      landName: 'Cozybara',
-      createAt: '2021-09-01T00:00:00.000Z',
-      updateAt: '2021-09-01T00:00:00.000Z',
-      publishedAt: '2021-09-01T00:00:00.000Z'
-    }
-  }
-]
+// const cardData: Land[] = [
+//   {
+//     id: 1,
+//     attributes: {
+//       landName: 'Sproutbara',
+//       createAt: '2021-09-01T00:00:00.000Z',
+//       updateAt: '2021-09-01T00:00:00.000Z',
+//       publishedAt: '2021-09-01T00:00:00.000Z'
+//     }
+//   },
+//   {
+//     id: 2,
+//     attributes: {
+//       landName: 'Sunnybara',
+//       createAt: '2021-09-01T00:00:00.000Z',
+//       updateAt: '2021-09-01T00:00:00.000Z',
+//       publishedAt: '2021-09-01T00:00:00.000Z'
+//     }
+//   },
+//   {
+//     id: 3,
+//     attributes: {
+//       landName: 'Rainybara',
+//       createAt: '2021-09-01T00:00:00.000Z',
+//       updateAt: '2021-09-01T00:00:00.000Z',
+//       publishedAt: '2021-09-01T00:00:00.000Z'
+//     }
+//   },
+//   {
+//     id: 4,
+//     attributes: {
+//       landName: 'Russetbara',
+//       createAt: '2021-09-01T00:00:00.000Z',
+//       updateAt: '2021-09-01T00:00:00.000Z',
+//       publishedAt: '2021-09-01T00:00:00.000Z'
+//     }
+//   },
+//   {
+//     id: 5,
+//     attributes: {
+//       landName: 'Cozybara',
+//       createAt: '2021-09-01T00:00:00.000Z',
+//       updateAt: '2021-09-01T00:00:00.000Z',
+//       publishedAt: '2021-09-01T00:00:00.000Z'
+//     }
+//   }
+// ]
 </script>
 
 <template>
@@ -92,7 +92,6 @@ const cardData: Item[] = [
       <h1 class="text-header-desktop">Welcome to Capy Mellow Land</h1>
       <h2 class="text-header-desktop">Where you want to visit?</h2>
     </div>
-    <!-- <CardList :cardData="dataArray" /> -->
-    <CardList :cardData="cardData" class="pt-8"/>
+    <CardList :cardData="dataArray" class="pt-8"/>
   </div>
 </template>
