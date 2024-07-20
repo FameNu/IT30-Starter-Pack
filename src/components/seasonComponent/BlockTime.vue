@@ -90,6 +90,14 @@ onMounted(async () => {
     <div v-for="_class of scheduleByChosenDate" class="pt-5">
       <div class="pl-3 font-bold">
         {{ formatTimeSlot(_class.attributes.startClass, _class.attributes.endClass) }}
+    <div class="pt-5">
+      <div class="pl-3 font-bold">9.30 - 12.30</div>
+      <div class="bg-white flex p-2 px-3 rounded-xl">
+        <div class="bg-purple-500 rounded-xl p-8"></div>
+        <div class="font-bold pl-3">
+          <h1 class="text-xl">IT Fundamental</h1>
+          <h3 class="text-lg">Class 1</h3>
+        </div>
       </div>
       <div class="bg-white flex pr-40 p-2 px-3 rounded-xl">
         <div :class="`bg-${bgColor}-sec`" class="rounded-xl p-8"></div>

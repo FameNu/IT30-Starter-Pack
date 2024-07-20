@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { type ResponseObject } from '@/models/ResponseObject'
 const URL = import.meta.env.VITE_APP_BASE_URL as string
-console.log(URL)
 
 async function fetchData(uri: string): Promise<ResponseObject> {
   const response = await axios.get(uri, {

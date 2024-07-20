@@ -1,13 +1,34 @@
 interface LocationsParentAttributes {
-  attributes: LocationsAttributes
+  id: number, // using as key
+  attributes: LocationsAttributes,
 }
 
 interface LocationsAttributes {
-  name: string
-  desc: string
-  linkMap: string
+  name: string,
+  description: string,
+  locationDescription: string | null,
+  linkMap: string,
   typeOfLocation: string
-  image: any
+  image: ImageLocationsAttributes,
+  categories: CategoriesAttributes,
 }
 
-export { type LocationsParentAttributes, type LocationsAttributes }
+interface ImageLocationsAttributes {
+  data: {
+    attributes: {
+      url: string,
+    }
+  }
+}
+
+interface CategoriesAttributes {
+  data: {
+    attributes: {
+      name: string
+    }
+  }[]
+}
+
+
+
+export { type LocationsParentAttributes, type ImageLocationsAttributes }

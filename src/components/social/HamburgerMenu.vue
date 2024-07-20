@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import IgIcon from '@/components/icons/IgIcon.vue'
 import MapIcon from '@/components/icons/MapIcon.vue'
+import Comment from '@/components/icons/CommentIcon.vue'
 import XMarkIcon from '@/components/icons/XMarkIcon.vue'
 import BarMenuIcon from '@/components/icons/BarMenuIcon.vue'
 
@@ -26,6 +27,16 @@ const swapOpenClose = () => {
     <XMarkIcon class="swap-off" />
 
     <div class="-z-30">
+      <RouterLink
+        to="/boards"
+        @click="swapOpenClose"
+        :class="[
+          'absolute transform transition-all duration-300 rounded-full',
+          !closeMenu ? '-translate-y-60 opacity-100' : 'translate-y-0 opacity-0'
+        ]"
+      >
+        <Comment />
+      </RouterLink>
       <RouterLink
         to="/locations"
         @click="swapOpenClose"

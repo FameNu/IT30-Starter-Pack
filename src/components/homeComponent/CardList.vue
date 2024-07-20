@@ -29,11 +29,16 @@ const handleCardClick = (name: string) => {
   capybaraStore.setCapybaraName(name)
   router.push({ name: 'seasons', params: { seasons: `${name}` } })
 }
+const handleCardClick = (name: string) => {
+  console.log(name)
+  capybaraStore.setCapybaraName(name)
+  router.push({ name: 'seasons', params: { seasons: `${name}` } })
+}
 </script>
 
 <template>
   <div
-    class="card-list w-full max-w-[1300px] max-md:list-mobile md:list-medium-screen xl:list-desktop"
+    class="card-list w-full max-w-[80%] max-md:list-mobile md:list-medium-screen xl:list-desktop items-center justify-center flex flex-wrap"
   >
     <Card
       v-for="(card, index) in cardData"

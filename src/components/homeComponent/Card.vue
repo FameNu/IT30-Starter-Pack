@@ -13,7 +13,7 @@ defineEmits(['onHover', 'onLeave', 'cardClick'])
 
 <template>
   <div
-    class="w-fit mx-auto flex flex-col items-center justify-center card-container"
+    class="max-w-min flex flex-col items-center justify-center card-container"
     @mouseenter="$emit('onHover')"
     @mouseleave="$emit('onLeave')"
     @click="$emit('cardClick')"
@@ -26,6 +26,7 @@ defineEmits(['onHover', 'onLeave', 'cardClick'])
         :class="['mascot h-48', { 'mascot-bounce': isHovered && hovering }]"
         :src="image"
         :alt="name"
+        class="w-full h-full"
       />
     </div>
     <div class="w-fit card-name text-header-desktop py-3 px-6 rounded-xl" :class="getBgClass(name)">
