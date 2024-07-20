@@ -33,7 +33,7 @@ const submitForm = () => {
 <template>
   <div v-if="show" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
     <div class="bg-white p-6 rounded shadow-lg w-11/12 md:w-1/2 lg:w-1/3">
-      <h2 class="text-xl font-semibold mb-4 text-center">Add New Message</h2>
+      <h2 class="text-xl font-semibold mb-4 text-center">Add New Topic</h2>
       <form @submit.prevent="submitForm">
         <input
           v-model="newMessage"
