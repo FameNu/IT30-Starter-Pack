@@ -1,17 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import router from '@/router'
-import { type Item } from '@/models/Card'
+import { type Land } from '@/models/Card'
 import { useCapybaraStore } from '@/store/global'
 import Card from '@/components/homeComponent/Card.vue'
 
-// defineProps<{
-//   // cardData: CardArgs[]
-//   cardData: Item[]
-// }>()
-
 const items = defineProps<{
-  cardData: Item[]
+  cardData: Land[]
 }>()
 console.log(items.cardData)
 

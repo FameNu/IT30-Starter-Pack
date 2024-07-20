@@ -10,20 +10,9 @@ const setDataArray = async () => {
   const response = await axios.get('http://it30starterpack.sit.kmutt.ac.th:1337/api/lands')
   const items: Item[] = response.data.data
   dataArray.value = items
-  console.log(dataArray.value[0].attributes.landName)
 }
 
 setDataArray()
-
-// const data = async () => {
-//   const response = await axios.get('http://it30starterpack.sit.kmutt.ac.th:1337/api/lands')
-//   const items: Item[] = response.data.data
-//   return items
-// }
-
-// dataArray.value = await data()
-// const duse = dataArray.value
-// console.log(duse[0]);
 
 const cardData = [
   {

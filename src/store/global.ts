@@ -1,34 +1,46 @@
 import { defineStore } from 'pinia'
 import axios from 'axios'
+import { type Land } from '@/models/Card'
 
 export const useCapybaraStore = defineStore('capybara', {
   state: () => ({
     capybara: '' as string,
-    allCapybara: {} as object
+    lands: [] as Array<Land>
   }),
   getters: {
-    getCapybara: (state) => {
-      return state.capybara
+    allLandNames: (state) => {
+      return state.lands.map((land) => land.attributes.landName)
     },
-    getCapybaraPath: (state) => {
-      state.capybara = state.capybara.toLowerCase()
-      return `mascot/${state.capybara}.png`
-    },
-    getCapybaras: (state) => {
-      return state.allCapybara
+    classRoomByLandName: (state) => (landName: string) => {
+      const land = state.lands.find(
+        (land) => land.attributes.landName.toLowerCase() === landName.toLowerCase()
+      )
+      return land?.attributes.classRoom
     }
   },
   actions: {
     setCapybaraName(capybara: string) {
       this.capybara = capybara
     },
-    async setCapybaras() {
-      try {
-        const response = await axios.get('http://it30starterpack.sit.kmutt.ac.th:1337/api/lands')
-        this.allCapybara = response.data
-      } catch (error) {
-        console.error(error)
-      }
+    async loadLands() {
+      const response = await axios.get('http://it30starterpack.sit.kmutt.ac.th:1337/api/lands')
+      this.lands = response.data.data as Array<Land>
+    }
+  }
+})
+
+export const useBackGround = defineStore('bgName', {
+  state: () => ({
+    bgName: 'bg6' as String
+  }),
+  getters: {
+    getBackGroundName: (state) => {
+      return state.bgName
+    }
+  },
+  actions: {
+    setBackGroundName(name: String) {
+      this.bgName = name
     }
   }
 })
