@@ -1,6 +1,6 @@
 interface Land {
-    id: number;
-    name: string;
+  id: number
+  name: string
 }
 
 export { type Land }

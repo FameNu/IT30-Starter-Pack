@@ -1,6 +1,23 @@
 <script setup lang="ts">
 import SITAndStarter from '@/components/ourBrand/SITAndStarter.vue'
 import HamburgerMenu from '@/components/social/HamburgerMenu.vue'
+import { ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+const bgPath = ref('')
+
+watch(
+  () => route.path,
+  (path) => {
+    if (path === '/') {
+      bgPath.value = '/bg/bg6.png'
+    } else {
+      bgPath.value = `/bg${String(path).toLowerCase()}.png`
+    }
+  },
+  { immediate: true }
+)
 </script>
 
 <template>
@@ -12,7 +29,7 @@ import HamburgerMenu from '@/components/social/HamburgerMenu.vue'
   </main>
   <div class="-z-10 absolute top-0 w-screen h-screen">
     <img
-      src="/bg/bg6.png"
+      :src="`${bgPath}`"
       alt="main-bg-image"
       class="max-[1175px]:h-screen w-dvw min-[1175px]:w-full fixed min-[1175px]:-bottom-4 opacity-60"
     />
@@ -21,5 +38,3 @@ import HamburgerMenu from '@/components/social/HamburgerMenu.vue'
     <HamburgerMenu />
   </footer>
 </template>
-
-* { transition: all 0.3s; }
