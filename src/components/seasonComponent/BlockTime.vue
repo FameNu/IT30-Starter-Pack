@@ -84,7 +84,7 @@ onMounted(async () => {
 
 <template>
   <div :class="`bg-${bgColor}`">
-    <div class="flex justify-between px-20">
+    <div class="flex justify-between w-full">
       <leftArrow
         :class="{ invisible: activityDatePeriod.findIndex((date) => date === chosenDate) === 0 }"
         @click="showPreviousDate"
@@ -123,7 +123,7 @@ onMounted(async () => {
       </a>
       <div class="p-2 px-3 bg-white flex rounded-xl" v-else>
         <div class="m-2 p-2 rounded-xl" :class="getBgClass(bgColor, true)">
-          <StarterLogo class="pt-0" />
+          <StarterLogo/>
         </div>
         <div class="pl-3 flex items-center">
           <h1 class="font-bold text-xl">{{ _class.attributes.title }}</h1>

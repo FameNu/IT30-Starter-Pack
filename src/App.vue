@@ -31,10 +31,19 @@ watch(
     <img
       :src="`${bgPath}`"
       alt="main-bg-image"
-      class="max-[1175px]:h-screen w-dvw min-[1175px]:w-full fixed min-[1175px]:-bottom-4 opacity-60"
+      class="max-[1175px]:h-screen w-dvw min-[1175px]:w-full fixed min-[1175px]:-bottom-4"
+      :class="{ 'blur': route.path !== '/' }"
     />
   </div>
   <footer class="fixed bottom-5 right-5 z-50">
     <HamburgerMenu />
   </footer>
 </template>
+
+<style scoped>
+.blur {
+  filter: blur(5px);
+  width: 115%;
+  opacity: 0.8;
+}
+</style>

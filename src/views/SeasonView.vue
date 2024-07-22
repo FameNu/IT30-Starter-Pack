@@ -35,7 +35,7 @@ onMounted(async () => {
       </span>
     </div>
     <div class="md:flex justify-center sm:grid">
-      <div>
+      <div class="lg:min-w-[32vw] lg:max-w-[32vw] md:min-w-[32vw] md:max-w-[32vw]">
         <StudyTable :name="name" class="pt-5 px-4 p-6 rounded-xl" />
       </div>
     </div>

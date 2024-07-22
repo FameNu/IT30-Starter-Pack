@@ -37,6 +37,11 @@ const router = createRouter({
       path: '/:catchAll(.*)',
       name: 'not-found',
       component: HomeView
+    },
+    {
+      path: '/none',
+      name: 'not-found',
+      component: HomeView
     }
   ]
 })

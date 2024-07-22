@@ -1,9 +1,4 @@
 <script setup lang="ts">
-import router from '@/router'
-const handleClick = () => {
-  router.push('/')
-}
-
 defineProps({
   size: {
     type: String,
@@ -13,12 +8,12 @@ defineProps({
 </script>
 
 <template>
-  <div class="pt-4">
+  <div>
     <img
       src="/logo/StarterPack-logo.png"
       alt="StarterPack Logo"
       :class="size"
-      @click="handleClick()"
+      class="cursor-pointer"
     />
   </div>
 </template>
