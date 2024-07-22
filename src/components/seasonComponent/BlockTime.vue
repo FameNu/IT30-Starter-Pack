@@ -2,8 +2,10 @@
 import { computed, onMounted, reactive, ref } from 'vue'
 import axios from 'axios'
 import leftArrow from '../icons/leftArrow.vue'
-import { type Schedule, type Land } from '@/models/Card'
+import { type Schedule } from '@/models/Card'
 import getBgClass from '@/utils/className'
+import Slide from '../icons/Slide.vue'
+import StarterLogo from '../ourBrand/StarterLogo.vue'
 
 const props = defineProps({
   name: {
@@ -57,8 +59,17 @@ const showPreviousDate = () => {
 }
 
 onMounted(async () => {
-  const response = await axios.get('http://it30starterpack.sit.kmutt.ac.th:1337/api/schedules?populate=land')
-  schedules.value = response.data.data.filter((schedule : Schedule) => schedule.attributes.land.data?.attributes.landName.toLowerCase() === props.name || schedule.attributes.title === "Open ceremony") as Schedule[]
+  const response = await axios.get(
+    'http://it30starterpack.sit.kmutt.ac.th:1337/api/schedules?populate=land&pagination[pageSize]=50'
+  )
+  schedules.value = response.data.data.filter(
+    (schedule: Schedule) =>
+      schedule.attributes.land.data?.attributes.landName.toLowerCase() === props.name ||
+      schedule.attributes.title === 'Open ceremony'
+  ) as Schedule[]
+  console.log(schedules.value)
+  console.log(response.data.data)
+
   // date is the first priority then startClass
   schedules.value = schedules.value.sort(
     (a, b) =>
@@ -69,7 +80,6 @@ onMounted(async () => {
     ? new Date().toISOString().slice(0, 10)
     : activityDatePeriod.value[0]
 })
-
 </script>
 
 <template>
@@ -94,14 +104,19 @@ onMounted(async () => {
       <div class="pl-3 font-bold">
         {{ formatTimeSlot(_class.attributes.startClass, _class.attributes.endClass) }}
       </div>
-      <div class="pt-5">
+      <a :href="`${_class.attributes.slideLink}`" target="_blank">
+        <div class="pt-5">
         <div class="bg-white flex pr-40 p-2 px-3 rounded-xl">
-          <div :class="getBgClass(bgColor,true)" class=" rounded-xl p-8" ></div>
+            <div class="m-1 p-2 rounded-xl" :class="getBgClass(bgColor, true)">
+              <Slide v-if="!_class.attributes.title.includes('Open')"></Slide>
+              <StarterLogo class="pt-0" v-else></StarterLogo>
+            </div>
           <div class="pl-3 flex items-center">
             <h1 class="font-bold text-xl">{{ _class.attributes.title }}</h1>
           </div>
         </div>
       </div>
+      </a>
     </div>
   </div>
 </template>
