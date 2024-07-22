@@ -34,7 +34,7 @@ const router = createRouter({
       component: CommentView
     },
     {
-      path: '/:catchAll(.*)',
+      path: '/:pathMatch(.*)*',
       name: 'not-found',
       component: HomeView
     }

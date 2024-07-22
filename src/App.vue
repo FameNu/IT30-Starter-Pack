@@ -13,7 +13,6 @@ watch(
     if (path === '/') {
       bgPath.value = '/bg/bg6.png'
     } else if (path.startsWith('/boards/')) {
-      const boardNumber = path.split('/boards/')[1]
       bgPath.value = '/bg/bg6.png'
     } else {
       bgPath.value = `/bg${String(path).toLowerCase()}.png`
