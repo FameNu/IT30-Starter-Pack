@@ -1,17 +1,31 @@
-const getBgClass = (name: string | any) => {
-  switch (name) {
-    case 'Sproutbara':
-      return 'bg-sproutbara'
-    case 'Sunnybara':
-      return 'bg-sunnybara'
-    case 'Rainybara':
-      return 'bg-rainybara'
-    case 'Russetbara':
-      return 'bg-russetbara'
-    case 'Cozybara':
-      return 'bg-cozybara'
-    default:
-      return ''
+const getBgClass = (name: string | any, secondary?: boolean) => {
+  name = name.toLowerCase()
+  if (secondary) {
+    switch (name) {
+      case 'sproutbara':
+        return 'bg-sproutbara-sec'
+      case 'sunnybara':
+        return 'bg-sunnybara-sec'
+      case 'rainybara':
+        return 'bg-rainybara-sec'
+      case 'russetbara':
+        return 'bg-russetbara-sec'
+      case 'cozybara':
+        return 'bg-cozybara-sec'
+    }
+  } else {
+    switch (name) {
+      case 'sproutbara':
+        return 'bg-sproutbara'
+      case 'sunnybara':
+        return 'bg-sunnybara'
+      case 'rainybara':
+        return 'bg-rainybara'
+      case 'russetbara':
+        return 'bg-russetbara'
+      case 'cozybara':
+        return 'bg-cozybara'
+    }
   }
 }
 

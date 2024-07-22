@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { type Item } from '@/models/Card'
 import getBgClass from '@/utils/className'
 defineProps({
   name: String,
