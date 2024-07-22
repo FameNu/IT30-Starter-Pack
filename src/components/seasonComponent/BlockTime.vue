@@ -2,7 +2,7 @@
 import { computed, onMounted, reactive, ref } from 'vue'
 import axios from 'axios'
 import leftArrow from '../icons/leftArrow.vue'
-import { type Schedule } from '@/models/Card'
+import { type Schedule, type Land } from '@/models/Card'
 import getBgClass from '@/utils/className'
 
 const props = defineProps({
@@ -16,15 +16,12 @@ const props = defineProps({
 const bgColor = computed(() => {
   return props.name
 })
-const secColor = computed(() => {
-  console.log(bgColor.value);
-  return `bg-${bgColor.value}-sec`
-})
 
 const schedules = ref([] as Schedule[])
 const activityDatePeriod = computed(() =>
   Array.from(new Set(schedules.value.map((schedule) => schedule.attributes.date)))
 )
+
 const chosenDate = ref('')
 const formattedDate = computed(() =>
   new Date(chosenDate.value)
@@ -60,8 +57,15 @@ const showPreviousDate = () => {
 }
 
 onMounted(async () => {
-  const response = await axios.get('http://it30starterpack.sit.kmutt.ac.th:1337/api/schedules')
-  schedules.value = response.data.data as Schedule[]
+  const response = await axios.get('http://it30starterpack.sit.kmutt.ac.th:1337/api/schedules?populate=land')
+  console.log(response.data.data);
+  console.log(response.data.data[0].attributes.land.data.attributes.landName.toLowerCase());
+  
+  console.log(props.name);
+  
+  schedules.value = response.data.data.filter((schedule : Schedule) => schedule.attributes.land.data.attributes.landName.toLowerCase() === props.name) as Schedule[]
+  
+  // schedules.value = response.data.data as Schedule[]
   // date is the first priority then startClass
   schedules.value = schedules.value.sort(
     (a, b) =>
@@ -72,6 +76,7 @@ onMounted(async () => {
     ? new Date().toISOString().slice(0, 10)
     : activityDatePeriod.value[0]
 })
+
 </script>
 
 <template>
@@ -98,9 +103,9 @@ onMounted(async () => {
       </div>
       <div class="pt-5">
         <div class="bg-white flex pr-40 p-2 px-3 rounded-xl">
-          <div :class="getBgClass(bgColor,true)" class="rounded-xl p-8"></div>
-          <div class="font-bold pl-3">
-            <h1 class="text-xl">{{ _class.attributes.title }}</h1>
+          <div :class="getBgClass(bgColor,true)" class=" rounded-xl p-8" ></div>
+          <div class="pl-3 flex items-center">
+            <h1 class="font-bold text-xl">{{ _class.attributes.title }}</h1>
           </div>
         </div>
       </div>

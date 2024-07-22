@@ -19,5 +19,18 @@ export type Schedule = {
     updatedAt: string
     publishedAt: string
     title: string
+    slideLink: string 
+    land: {
+      data: {
+        id: number
+        attributes: {
+          landName: string
+          createdAt: string
+          updatedAt: string
+          publishedAt: string
+          classRoom: string
+        }
+      }
+    }
   }
 }
