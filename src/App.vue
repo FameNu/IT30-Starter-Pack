@@ -12,6 +12,9 @@ watch(
   (path) => {
     if (path === '/') {
       bgPath.value = '/bg/bg6.png'
+    } else if (path.startsWith('/boards/')) {
+      const boardNumber = path.split('/boards/')[1]
+      bgPath.value = '/bg/bg6.png'
     } else {
       bgPath.value = `/bg${String(path).toLowerCase()}.png`
     }
@@ -32,7 +35,7 @@ watch(
       :src="`${bgPath}`"
       alt="main-bg-image"
       class="max-[1175px]:h-screen w-dvw min-[1175px]:w-full fixed min-[1175px]:-bottom-4"
-      :class="{ 'blur_style': route.path !== '/' }"
+      :class="{ blur_style: route.path !== '/' }"
     />
   </div>
   <footer class="fixed bottom-5 right-5 z-50">
@@ -41,7 +44,7 @@ watch(
 </template>
 
 <style scoped>
-.blur_style{
+.blur_style {
   filter: blur(5px);
   height: 115%;
   opacity: 0.8;
