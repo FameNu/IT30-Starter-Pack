@@ -5,7 +5,7 @@ import { type CommentObj } from '@/models/Message'
 import CommentSVG from '@/assets/svg/CommentSVG.vue'
 import { useRoute } from 'vue-router'
 import { io } from 'socket.io-client'
-import { comment } from 'postcss'
+import SEND from '@/assets/svg/send.svg'
 
 const BASE_URL = import.meta.env.VITE_APP_BASE_URL
 
@@ -73,6 +73,7 @@ const addNewComment = async (replyComment: string) => {
 }
 
 const submitComment = (replyComment: string) => {
+  alert('Comment submitted!')
   if (replyComment.trim()) {
     addNewComment(replyComment)
   }
@@ -93,14 +94,25 @@ const submitComment = (replyComment: string) => {
     <div v-for="comment in comments" :key="comment.id" class="bg-gray-200 p-4 rounded mb-2">
       <p>{{ comment.comment }}</p>
     </div>
-    <div class="mt-4">
+    <div class="mt-4 flex justify-center content-center outline rounded outline-zinc-400">
       <input
         v-model="newComment"
         type="text"
         placeholder="Add Comment..."
-        class="border p-2 w-full rounded"
+        class="p-2 w-full focus:outline-none"
         @keypress.enter="submitComment(newComment)"
       />
+      <img
+        :src="SEND"
+        class="m-auto mr-2 p-1 rounded-lg text-white lg:h-10 md:h-10 h-8 cursor-pointer"
+        @click="submitComment(newComment)"
+      />
+    </div>
+    <div class="w-full text-center mt-1 text-gray-400">
+      <span class="text-gray-400 font-semibold">warning: </span>this is a public comment section.
+      once submitted, it cannot be deleted.
+      <br />
+      <span class="text-gray-400 font-semibold">please be respectful to others!</span>
     </div>
   </div>
 </template>

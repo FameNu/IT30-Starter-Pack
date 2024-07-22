@@ -32,7 +32,7 @@ watch(
       :src="`${bgPath}`"
       alt="main-bg-image"
       class="max-[1175px]:h-screen w-dvw min-[1175px]:w-full fixed min-[1175px]:-bottom-4"
-      :class="{ 'blur': route.path !== '/' }"
+      :class="{ 'blur_style': route.path !== '/' }"
     />
   </div>
   <footer class="fixed bottom-5 right-5 z-50">
@@ -41,9 +41,9 @@ watch(
 </template>
 
 <style scoped>
-.blur {
+.blur_style{
   filter: blur(5px);
-  width: 115%;
+  height: 115%;
   opacity: 0.8;
 }
 </style>
