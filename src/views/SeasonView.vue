@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import StudyTable from '@/components/seasonComponent/BlockTime.vue'
 import { useRoute } from 'vue-router'
+
+import StudyTable from '@/components/seasonComponent/BlockTime.vue'
+import BackHome from '@/components/actions/BackHome.vue'
+
 import { useBackGround } from '@/store/global'
 import { useCapybaraStore } from '@/store/global'
 
@@ -20,6 +23,7 @@ onMounted(async () => {
 </script>
 
 <template>
+  <BackHome />
   <div
     class="flex justify-center gap-8 flex-col content-center lg:flex-row lg:items-center h-[75vh] md:flex-row md:items-center"
   >
