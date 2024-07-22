@@ -6,8 +6,7 @@ const goFuckingHome = () => {
 }
 
 const getBgClass = (name: string | any, secondary?: boolean): string => {
-  name = name ? name.toLowerCase() : 'sproutbara'
-  console.log(name)
+  name = name ? name.toLowerCase() : 'cockandballs'
   if (secondary) {
     switch (name) {
       case 'sproutbara':
