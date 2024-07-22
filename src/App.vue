@@ -15,7 +15,8 @@ watch(
     } else {
       bgPath.value = `/bg${String(path).toLowerCase()}.png`
     }
-  }, { immediate: true }
+  },
+  { immediate: true }
 )
 </script>
 

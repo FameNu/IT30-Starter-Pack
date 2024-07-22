@@ -1,31 +1,31 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import { type Land } from "@/models/Lands";
-import LandsOptions from "@/components/boardComponent/LandsOptions.vue";
+import { ref } from 'vue'
+import { type Land } from '@/models/Lands'
+import LandsOptions from '@/components/boardComponent/LandsOptions.vue'
 
-const props = defineProps<{ 
-  show: boolean,
+const props = defineProps<{
+  show: boolean
   lands: Land[]
-}>();
+}>()
 
-const emit = defineEmits(['close', 'submit']);
+const emit = defineEmits(['close', 'submit'])
 
-const newMessage = ref('');
+const newMessage = ref('')
 const selectedLand = ref()
 
 const closeModal = () => {
-  emit('close');
-};
+  emit('close')
+}
 
-const handleSelect = (id : string) => {
+const handleSelect = (id: string) => {
   selectedLand.value = id
 }
 
 const submitForm = () => {
-  if (newMessage.value.trim()) {    
-    const landId = selectedLand.value === 7 ? null : selectedLand.value;
-    emit('submit', { message: newMessage.value, land: landId });
-    newMessage.value = '';
+  if (newMessage.value.trim()) {
+    const landId = selectedLand.value === 7 ? null : selectedLand.value
+    emit('submit', { message: newMessage.value, land: landId })
+    newMessage.value = ''
   }
 }
 </script>
@@ -43,10 +43,17 @@ const submitForm = () => {
         />
         <LandsOptions :lands="props.lands" @select="handleSelect" />
         <div class="flex justify-end mt-4">
-          <button @click="closeModal" type="button" class="bg-gray-500 text-white py-2 px-4 rounded mr-2 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500">
+          <button
+            @click="closeModal"
+            type="button"
+            class="bg-gray-500 text-white py-2 px-4 rounded mr-2 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500"
+          >
             Cancel
           </button>
-          <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <button
+            type="submit"
+            class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
             Submit
           </button>
         </div>
@@ -54,4 +61,3 @@ const submitForm = () => {
     </div>
   </div>
 </template>
-  

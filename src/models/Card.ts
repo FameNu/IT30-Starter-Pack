@@ -19,7 +19,7 @@ export type Schedule = {
     updatedAt: string
     publishedAt: string
     title: string
-    slideLink: string 
+    slideLink: string
     land: {
       data: {
         id: number

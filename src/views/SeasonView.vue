@@ -28,8 +28,8 @@ onMounted(async () => {
     class="flex justify-center gap-8 flex-col content-center lg:flex-row lg:items-center h-[75vh] md:flex-row md:items-center"
   >
     <div class="flex flex-col items-center text-3xl font-bold">
-        <div>{{ route.params.seasons }}</div>
-        <div>{{ landStore.classRoomByLandName(name) }}</div>
+      <div>{{ route.params.seasons }}</div>
+      <div>{{ landStore.classRoomByLandName(name) }}</div>
       <span class="min-w-64 max-w-64">
         <img :src="path" alt="bomb" class="w-full h-full" />
       </span>

@@ -110,8 +110,11 @@ onMounted(async () => {
         v-if="!_class.attributes.title.includes('Open')"
       >
         <div class="p-2 px-3 bg-white flex rounded-xl">
-          <div class="w-16 m-2 p-2 rounded-xl flex justify-center" :class="getBgClass(bgColor, true)">
-            <Slide/>
+          <div
+            class="w-16 m-2 p-2 rounded-xl flex justify-center"
+            :class="getBgClass(bgColor, true)"
+          >
+            <Slide />
           </div>
           <div class="pl-3 flex items-center">
             <h1 class="font-bold text-xl">{{ _class.attributes.title }}</h1>
@@ -120,7 +123,7 @@ onMounted(async () => {
       </a>
       <div class="p-2 px-3 bg-white flex rounded-xl" v-else>
         <div class="m-2 p-2 rounded-xl" :class="getBgClass(bgColor, true)">
-          <StarterLogo class="pt-0"/>
+          <StarterLogo class="pt-0" />
         </div>
         <div class="pl-3 flex items-center">
           <h1 class="font-bold text-xl">{{ _class.attributes.title }}</h1>

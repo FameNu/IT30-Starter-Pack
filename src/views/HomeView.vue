@@ -91,6 +91,6 @@ setDataArray()
       <h1 class="text-header-desktop">Welcome to Capy Mellow Land</h1>
       <h2 class="text-header-desktop">Where you want to visit?</h2>
     </div>
-    <CardList :cardData="dataArray" class="pt-8"/>
+    <CardList :cardData="dataArray" class="pt-8" />
   </div>
 </template>
