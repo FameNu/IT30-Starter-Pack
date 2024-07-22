@@ -23,7 +23,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <BackHome />
+  <!-- <BackHome /> -->
   <div
     class="flex justify-center gap-8 flex-col content-center lg:flex-row lg:items-center h-[75vh] md:flex-row md:items-center"
   >
