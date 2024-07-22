@@ -1,5 +1,5 @@
 const getBgClass = (name: string | any, secondary?: boolean) => {
-  name = name.toLowerCase()
+  name = name ? name.toLowerCase() : 'sproutbara'
   if (secondary) {
     switch (name) {
       case 'sproutbara':

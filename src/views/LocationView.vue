@@ -15,7 +15,7 @@ const pathMascot: string = '/mainMascotAction/Mascot-Action-5.png'
 onMounted(async () => {
   if (import.meta.env.VITE_DEV_MODE === 'true') {
     Object.assign(locations.value, bistroMetaData.data)
-    console.log("dev mode")
+    console.log('dev mode')
   } else {
     const response = await fetchData(
       `${import.meta.env.VITE_APP_BASE_URL}/api/locations?populate=image%2Ccategories&sort=typeOfLocation%3Adesc`
@@ -23,6 +23,19 @@ onMounted(async () => {
     Object.assign(locations.value, response.data)
   }
 })
+
+const isMobile = ref(window.innerWidth <= 768)
+window.addEventListener('resize', () => {
+  isMobile.value = window.innerWidth <= 768
+})
+
+const isShaking = ref(false)
+const handleClick = () => {
+  isShaking.value = true
+  setTimeout(() => {
+    isShaking.value = false
+  }, 500)
+}
 </script>
 
 <template>
@@ -31,9 +44,9 @@ onMounted(async () => {
     <BackHome />
   </div>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <div class="block md:hidden w-full">
+    <!-- <div class="block md:hidden w-full">
       <img :src="pathMascot" alt="CAPYBARA" class="w-full" />
-    </div>
+    </div> -->
     <div class="col-span-1 md:col-span-2">
       <section
         id="locations-table"
@@ -42,10 +55,59 @@ onMounted(async () => {
         <LocationCard v-for="location in locations" :key="location.id" :location="location" />
       </section>
     </div>
-    <div class="hidden md:block col-span-1 md:col-start-3">
-      <div class="w-full h-full">
-        <img :src="pathMascot" alt="CAPYBARA" class="h-1/3 fixed top-1/4" />
+    <div v-if="!isMobile">
+      <div
+        class="fixed inset-y-0 right-0 flex items-center justify-center xl:mr-[12vw] lg:mr-[20vw] md:mr-[4vw]"
+      >
+        <div class="w-fit h-fit flex items-center justify-center">
+          <img
+            :src="pathMascot"
+            alt="CAPYBARA"
+            class="z-50 animate-floating lg:w-80 md:w-64"
+            :class="{ 'animate-shake': isShaking }"
+            @click="handleClick"
+          />
+        </div>
       </div>
     </div>
   </div>
 </template>
+
+<style scoped>
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.animate-floating {
+  animation: floating 3s ease-in-out infinite;
+}
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(10px);
+  }
+}
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+</style>
