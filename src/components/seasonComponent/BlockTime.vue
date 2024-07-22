@@ -84,7 +84,7 @@ onMounted(async () => {
 
 <template>
   <div :class="`bg-${bgColor}`">
-    <div class="flex justify-between px-20">
+    <div class="flex justify-between w-full">
       <leftArrow
         :class="{ invisible: activityDatePeriod.findIndex((date) => date === chosenDate) === 0 }"
         @click="showPreviousDate"
