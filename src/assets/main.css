@@ -43,12 +43,12 @@
   /* Reponssive */
   /* Desktop Size */
   .list-desktop {
-    @apply flex flex-wrap max-w-2xl gap-x-16 justify-center items-center;
+    @apply flex flex-wrap max-w-6xl gap-x-48 justify-center items-center;
   }
 
   /* Ipad Size */
   .list-medium-screen {
-    @apply flex flex-wrap max-w-2xl gap-8 justify-center items-center;
+    @apply flex flex-wrap max-w-2xl gap-24 justify-center items-center;
   }
 
   .list-medium-screen .card-container:nth-child(2) {
