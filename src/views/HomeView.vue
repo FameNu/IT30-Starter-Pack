@@ -10,7 +10,6 @@ const setDataArray = async () => {
   const response = await axios.get('http://it30starterpack.sit.kmutt.ac.th:1337/api/lands')
   const items: Land[] = response.data.data
   dataArray.value = items
-  console.log(dataArray.value[0].attributes.landName)
 }
 
 setDataArray()

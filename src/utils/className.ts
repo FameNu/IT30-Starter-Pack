@@ -1,24 +1,32 @@
 const getBgClass = (name: string | any, secondary?: boolean) => {
   name = name.toLowerCase()
-  let bgClass = ''
-  switch (name) {
-    case 'sproutbara':
-      bgClass = 'bg-sproutbara'
-      break
-    case 'sunnybara':
-      bgClass = 'bg-sunnybara'
-      break
-    case 'rainybara':
-      bgClass = 'bg-rainybara'
-      break
-    case 'russetbara':
-      bgClass = 'bg-russetbara'
-      break
-    case 'cozybara':
-      bgClass = 'bg-cozybara'
-      break
+  if (secondary) {
+    switch (name) {
+      case 'sproutbara':
+        return 'bg-sproutbara-sec'
+      case 'sunnybara':
+        return 'bg-sunnybara-sec'
+      case 'rainybara':
+        return 'bg-rainybara-sec'
+      case 'russetbara':
+        return 'bg-russetbara-sec'
+      case 'cozybara':
+        return 'bg-cozybara-sec'
+    }
+  } else {
+    switch (name) {
+      case 'sproutbara':
+        return 'bg-sproutbara'
+      case 'sunnybara':
+        return 'bg-sunnybara'
+      case 'rainybara':
+        return 'bg-rainybara'
+      case 'russetbara':
+        return 'bg-russetbara'
+      case 'cozybara':
+        return 'bg-cozybara'
+    }
   }
-  return secondary ? `${bgClass}-sec` : bgClass
 }
 
 export default getBgClass
