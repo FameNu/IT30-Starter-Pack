@@ -58,14 +58,7 @@ const showPreviousDate = () => {
 
 onMounted(async () => {
   const response = await axios.get('http://it30starterpack.sit.kmutt.ac.th:1337/api/schedules?populate=land')
-  console.log(response.data.data);
-  console.log(response.data.data[0].attributes.land.data.attributes.landName.toLowerCase());
-  
-  console.log(props.name);
-  
-  schedules.value = response.data.data.filter((schedule : Schedule) => schedule.attributes.land.data.attributes.landName.toLowerCase() === props.name) as Schedule[]
-  
-  // schedules.value = response.data.data as Schedule[]
+  schedules.value = response.data.data.filter((schedule : Schedule) => schedule.attributes.land.data?.attributes.landName.toLowerCase() === props.name || schedule.attributes.title === "Open ceremony") as Schedule[]
   // date is the first priority then startClass
   schedules.value = schedules.value.sort(
     (a, b) =>
