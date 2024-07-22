@@ -93,14 +93,20 @@ const submitComment = (replyComment: string) => {
     <div v-for="comment in comments" :key="comment.id" class="bg-gray-200 p-4 rounded mb-2">
       <p>{{ comment.comment }}</p>
     </div>
-    <div class="mt-4">
+    <div class="mt-4 flex justify-center content-center outline rounded outline-zinc-400">
       <input
         v-model="newComment"
         type="text"
         placeholder="Add Comment..."
-        class="border p-2 w-full rounded"
+        class="p-2 w-full focus:outline-none"
         @keypress.enter="submitComment(newComment)"
       />
+      <div
+        class="m-auto mr-2 bg-blue-500 px-2 py-1 rounded-lg text-white"
+        @click="submitComment(newComment)"
+      >
+        SEND
+      </div>
     </div>
   </div>
 </template>
