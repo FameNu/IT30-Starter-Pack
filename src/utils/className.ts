@@ -1,5 +1,13 @@
-const getBgClass = (name: string | any, secondary?: boolean) => {
+import router from '@/router'
+
+const goFuckingHome = () => {
+  alert('wrong way!')
+  router.push('/not-found')
+}
+
+const getBgClass = (name: string | any, secondary?: boolean): string => {
   name = name ? name.toLowerCase() : 'sproutbara'
+  console.log(name)
   if (secondary) {
     switch (name) {
       case 'sproutbara':
@@ -12,6 +20,9 @@ const getBgClass = (name: string | any, secondary?: boolean) => {
         return 'bg-russetbara-sec'
       case 'cozybara':
         return 'bg-cozybara-sec'
+      default:
+        goFuckingHome()
+        return ''
     }
   } else {
     switch (name) {
@@ -25,6 +36,9 @@ const getBgClass = (name: string | any, secondary?: boolean) => {
         return 'bg-russetbara'
       case 'cozybara':
         return 'bg-cozybara'
+      default:
+        goFuckingHome()
+        return ''
     }
   }
 }

@@ -10,7 +10,7 @@ const bgPath = ref('')
 watch(
   () => route.path,
   (path) => {
-    if (path === '/') {
+    if (path === '/' || path === '/not-found') {
       bgPath.value = '/bg/bg6.png'
     } else if (path.startsWith('/boards/')) {
       bgPath.value = '/bg/bg6.png'
