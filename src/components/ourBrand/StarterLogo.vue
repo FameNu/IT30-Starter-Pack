@@ -8,8 +8,13 @@ defineProps({
 </script>
 
 <template>
-  <div class="pt-4">
-    <img src="/logo/StarterPack-logo.png" alt="StarterPack Logo" :class="size" />
+  <div>
+    <img
+      src="/logo/StarterPack-logo.png"
+      alt="StarterPack Logo"
+      :class="size"
+      class="cursor-pointer"
+    />
   </div>
 </template>
 

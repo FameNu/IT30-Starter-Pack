@@ -32,6 +32,16 @@ const router = createRouter({
       path: '/boards/:bid',
       name: 'board-comment',
       component: CommentView
+    },
+    {
+      path: '/:catchAll(.*)',
+      name: 'not-found',
+      component: HomeView
+    },
+    {
+      path: '/none',
+      name: 'not-found',
+      component: HomeView
     }
   ]
 })
