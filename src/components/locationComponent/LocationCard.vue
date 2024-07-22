@@ -18,6 +18,7 @@ const classOfCategoryMapper = new Map([
 ])
 
 const DEV_MODE = import.meta.env.VITE_DEV_MODE === 'true'
+console.log('DEV_MODE:', DEV_MODE)
 </script>
 
 <template>
