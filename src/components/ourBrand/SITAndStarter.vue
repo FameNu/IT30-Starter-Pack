@@ -6,6 +6,6 @@ import StarterLogo from '@/components/ourBrand/StarterLogo.vue'
 <template>
   <header class="mx-10 flex justify-between">
     <SitSign />
-    <StarterLogo />
+    <StarterLogo class="pt-4"/>
   </header>
 </template>

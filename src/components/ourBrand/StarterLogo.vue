@@ -13,11 +13,12 @@ defineProps({
 </script>
 
 <template>
-  <div class="pt-4">
+  <div>
     <img
       src="/logo/StarterPack-logo.png"
       alt="StarterPack Logo"
       :class="size"
+      class="w-fit h-fit"
       @click="handleClick()"
     />
   </div>
