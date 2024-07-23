@@ -10,7 +10,7 @@ const handleClick = () => {
 
 <template>
   <header class="mx-10 flex justify-between">
-    <SitSign />
-    <StarterLogo class="pt-4" @click="handleClick()" />
+    <SitSign @click="handleClick"/>
+    <StarterLogo class="pt-4" @click="handleClick" />
   </header>
 </template>
