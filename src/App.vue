@@ -12,7 +12,7 @@ watch(
   (path) => {
     if (path === '/' || path === '/not-found') {
       bgPath.value = '/bg/bg6.png'
-    } else if (path.startsWith('/boards/')) {
+    } else if (path.startsWith('/boards')) {
       bgPath.value = '/bg/bg6.png'
     } else {
       bgPath.value = `/bg${String(path).toLowerCase()}.png`

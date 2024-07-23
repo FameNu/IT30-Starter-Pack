@@ -1,7 +1,7 @@
 import router from '@/router'
 
 const goFuckingHome = () => {
-  alert('wrong way!')
+  // alert('wrong way!')
   router.push('/not-found')
 }
 
