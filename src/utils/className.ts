@@ -1,4 +1,5 @@
 import router from '@/router'
+import { useRoute } from 'vue-router'
 
 const goFuckingHome = () => {
   // alert('wrong way!')
@@ -20,8 +21,12 @@ const getBgClass = (name: string | any, secondary?: boolean): string => {
       case 'cozybara':
         return 'bg-cozybara-sec'
       default:
-        goFuckingHome()
-        return ''
+        if (useRoute().path === `/boards`) {
+          return ''
+        } else {
+          goFuckingHome()
+          return ''
+        }
     }
   } else {
     switch (name) {
@@ -36,8 +41,12 @@ const getBgClass = (name: string | any, secondary?: boolean): string => {
       case 'cozybara':
         return 'bg-cozybara'
       default:
-        goFuckingHome()
-        return ''
+        if (useRoute().path === `/boards`) {
+          return ''
+        } else {
+          goFuckingHome()
+          return ''
+        }
     }
   }
 }
