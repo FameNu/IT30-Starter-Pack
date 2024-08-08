@@ -1,6 +1,25 @@
 <script setup lang="ts">
 import SITAndStarter from '@/components/ourBrand/SITAndStarter.vue'
-import HamburgerMenu from '@/components/social/HamburgerMenu.vue';
+import HamburgerMenu from '@/components/social/HamburgerMenu.vue'
+import { ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+const bgPath = ref('')
+
+watch(
+  () => route.path,
+  (path) => {
+    if (path === '/' || path === '/not-found') {
+      bgPath.value = '/bg/bg6.png'
+    } else if (path.startsWith('/boards/')) {
+      bgPath.value = '/bg/bg6.png'
+    } else {
+      bgPath.value = `/bg${String(path).toLowerCase()}.png`
+    }
+  },
+  { immediate: true }
+)
 </script>
 
 <template>
@@ -12,12 +31,21 @@ import HamburgerMenu from '@/components/social/HamburgerMenu.vue';
   </main>
   <div class="-z-10 absolute top-0 w-screen h-screen">
     <img
-      src="/bg/bg6.png"
+      :src="`${bgPath}`"
       alt="main-bg-image"
-      class="max-[1175px]:h-screen w-dvw min-[1175px]:w-full fixed min-[1175px]:-bottom-4 opacity-60"
+      class="max-[1175px]:h-screen w-dvw min-[1175px]:w-full fixed min-[1175px]:-bottom-4"
+      :class="{ blur_style: route.path !== '/' }"
     />
   </div>
   <footer class="fixed bottom-5 right-5 z-50">
     <HamburgerMenu />
   </footer>
 </template>
+
+<style scoped>
+.blur_style {
+  filter: blur(5px);
+  height: 115%;
+  opacity: 0.8;
+}
+</style>
