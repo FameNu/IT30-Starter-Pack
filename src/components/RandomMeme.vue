@@ -22,5 +22,3 @@ onMounted(() => {
     <img :src="memeUrl" alt="NOT FOUND MEME." class="flex mt-2 justify-center mx-auto" />
   </div>
 </template>
-
-<style scoped></style>
